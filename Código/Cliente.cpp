@@ -13,10 +13,10 @@
 #include "sequentialSearch.h"
 
 /**
-* \brief Cria um Cliente usando os par‚metros para definir as sua caracteristicas
+* \brief Cria um Cliente usando os par√¢metros para definir as sua caracteristicas
 * \param nome Nome do Cliente
 * \param nif NIF do Cliente
-* \return Esta funÁ„o n„o possui retorno
+* \return Esta fun√ß√£o n√£o possui retorno
 */
 Cliente::Cliente(string nome, unsigned int nif)
 {
@@ -25,7 +25,7 @@ Cliente::Cliente(string nome, unsigned int nif)
 }
 
 /**
-* \brief ObtÈm o Nome de um Cliente
+* \brief Obt√©m o Nome de um Cliente
 * \return Retorna o Nome de um Cliente
 */
 string Cliente::getNome() const
@@ -34,7 +34,7 @@ string Cliente::getNome() const
 }
 
 /**
-* \brief ObtÈm o NIF de um Cliente
+* \brief Obt√©m o NIF de um Cliente
 * \return Retorna o NIF de um Cliente
 */
 unsigned int Cliente::getNif() const
@@ -43,9 +43,9 @@ unsigned int Cliente::getNif() const
 }
 
 /**
-* \brief Altera, se necess·rio, o nome de um Cliente
-* \param codigo Novo valor
-* \return Esta funÁ„o n„o possui retorno
+* \brief Altera, se necess√°rio, o nome de um Cliente
+* \param nome Novo nome
+* \return Esta fun√ß√£o n√£o possui retorno
 */
 void Cliente::updateNome(string nome)
 {
@@ -53,9 +53,9 @@ void Cliente::updateNome(string nome)
 }
 
 /**
-* \brief Altera, se necess·rio, o nif de um Cliente
-* \param codigo Novo valor
-* \return Esta funÁ„o n„o possui retorno
+* \brief Altera, se necess√°rio, o nif de um Cliente
+* \param nif Novo nif
+* \return Esta fun√ß√£o n√£o possui retorno
 */
 void Cliente::updateNif(unsigned int nif)
 {
@@ -63,9 +63,9 @@ void Cliente::updateNif(unsigned int nif)
 }
 
 /**
-* \brief Operador utilizado para verificar se dois clientes s„o iguais
+* \brief Operador utilizado para verificar se dois clientes s√£o iguais
 * \param c1 Cliente a comparar
-* \return Retorna true se os clientes forem iguais e false se n„o forem
+* \return Retorna true se os clientes forem iguais e false se n√£o forem
 */
 bool Cliente::operator==(const Cliente &c1)
 {
