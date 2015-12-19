@@ -29,6 +29,8 @@ public:
 	void updateNome(string nome);
 	void updateNif(unsigned int nif);
 	void updateHoras(unsigned int horas);
+	bool operator<(const Motorista& m2) const;
+	bool operator==(const Motorista& m1, const Motorista& m2) const;
 
 };
 
