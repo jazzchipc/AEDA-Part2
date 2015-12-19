@@ -22,7 +22,8 @@ class Motorista
 	unsigned int horas;
 public:
 	Motorista(string nome, unsigned int nif, unsigned int horas);
-	~Motorista();
+	Motorista(string nome, unsigned int nif);
+	~Motorista(){};
 	string getNome() const;
 	unsigned int getNif() const;
 	unsigned int getHoras() const;
@@ -30,7 +31,9 @@ public:
 	void updateNif(unsigned int nif);
 	void updateHoras(unsigned int horas);
 	bool operator<(const Motorista& m2) const;
-	bool operator==(const Motorista& m1, const Motorista& m2) const;
+	bool operator==(const Motorista& m2) const;
+
+	friend ostream& operator << (ostream& os, const Motorista& m);
 
 };
 

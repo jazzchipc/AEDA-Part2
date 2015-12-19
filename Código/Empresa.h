@@ -11,6 +11,8 @@
 
 #include "Servico.h"
 #include "Frota.h"
+#include "BST.h"
+#include "Motorista.h"
 
 using namespace std;
 
@@ -22,6 +24,11 @@ class Empresa
 	float custoCong; // custo extra por capacidade de congelação de um camião
 	float custoPerig; // custo extra por capacidade de transporte de cargas perigosas
 	float custoDist; // custo por km percorrido pelo camião
+
+	// Parte 2
+
+	BST<Motorista> motoristas;
+
 public:
 	//Construtor
 	Empresa(string nome);
@@ -74,8 +81,16 @@ public:
 	void setCustoCong(float n);
 	void setCustoPerig(float n); 
 	void setCustoDist(float n);
-
 	
+	/***********
+	 * Parte 2 *
+	 ***********/
+
+	//Motoristas
+
+	BST<Motorista> getMotoristas();
+	void adicionaMotorista(const Motorista& m);
+
 };
 
 

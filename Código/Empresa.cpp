@@ -18,12 +18,17 @@
 #include "Servico.h"
 #include "sequentialSearch.h"
 
+//Necessário para usar tabelas de dispersão
+#include <unordered_set>
+
+Motorista notFound ("", 0);
+
 /**
 * \brief Cria uma Empresa usando os parâmetros para definir as sua caracteristicas
 * \param nome Nome da Empresa
 * \return Esta função não possui retorno
 */
-Empresa::Empresa(string nome)
+Empresa::Empresa(string nome) : motoristas(notFound)
 {
 	this->nome = nome;
 }
@@ -310,7 +315,7 @@ int Empresa::loadEmpresa()
 
 	getline(input, linha);
 
-	vector <vector <int>> ids;
+	vector <vector <int> > ids;
 
 	if (linha == "BEGIN_FROTA")
 	{
@@ -488,3 +493,28 @@ void Empresa::setCustoDist(float n)
 {
 	this->custoDist = n;
 }
+
+
+/***********************
+ *    	 PARTE 2	   *
+ ***********************/
+
+/**
+ * @brief Retorna a BST que contém os motoristas da Empresa
+ * @return A BST com os motoristas
+ */
+BST<Motorista> Empresa::getMotoristas()
+{
+	return this->motoristas;
+}
+
+/**
+ * @brief Adiciona um determinado motorista aos motoristas da empresa
+ * @param m Motorista a adicionar
+ * @return Esta função não possui retorno
+ */
+void Empresa::adicionaMotorista(const Motorista& m)
+{
+	this->motoristas.insert(m);
+}
+

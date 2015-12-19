@@ -7,6 +7,32 @@
 
 #include <iostream>
 
+
+//*****USAR ESTE MAIN PARA TESTAR AS FUNÇÕES DA PARTE 2******
+int main()
+{
+	Empresa empresa ("Transportex");
+
+	Motorista m1 ("A", 333);
+	Motorista m2 ("B", 111);
+	Motorista m3 ("C", 3333, 9);
+	Motorista m4 ("D", 90901, 10);
+	Motorista m5 ("E", 11, 9);
+
+	empresa.adicionaMotorista(m1);
+	empresa.adicionaMotorista(m2);
+	empresa.adicionaMotorista(m3);
+	empresa.adicionaMotorista(m4);
+	empresa.adicionaMotorista(m5);
+
+	empresa.getMotoristas().printTree();
+
+	char c;
+	cin >> c;
+
+	return 0;
+}
+
 //IGNORAR FUNÇÃO TESTE
 int m()
 {
@@ -37,7 +63,8 @@ int m()
 	return 0;
 }
 
-int main()
+//IGNORAR FUNÇÃO TESTE
+int main2()
 {
 	Empresa empresa = firstScreen();
 
