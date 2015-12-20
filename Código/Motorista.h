@@ -23,6 +23,7 @@ class Motorista
 public:
 	Motorista(string nome, unsigned int nif, unsigned int horas);
 	Motorista(string nome, unsigned int nif);
+	Motorista();
 	~Motorista(){};
 	string getNome() const;
 	unsigned int getNif() const;

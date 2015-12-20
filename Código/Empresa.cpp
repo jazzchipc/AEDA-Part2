@@ -509,6 +509,29 @@ BST<Motorista> Empresa::getMotoristas()
 }
 
 /**
+* @brief Procura um motorista na BST, através do seu nome e NIF, e devolve um apontador para o motorista
+* @param nome Nome do motorista a procurar
+* @param nif NIF do motorista a procurar
+* @return Um apontador para o Motorista, se foi encontrado, NULL caso contrário
+*/
+Motorista* Empresa::encontraMotorista(string nome, unsigned int nif)
+{
+	BSTItrIn <Motorista> it(motoristas); // it é um iterador da BST "motoristas"
+
+	while (!it.isAtEnd())
+	{
+		if ((it.retrieve().getNome() == nome) && (it.retrieve().getNif() == nif))
+		{
+			return &it.retrieve();
+		}
+
+		it.advance();
+	}
+
+	return NULL;
+}
+
+/**
  * @brief Adiciona um determinado motorista aos motoristas da empresa
  * @param m Motorista a adicionar
  * @return Esta função não possui retorno
@@ -518,9 +541,96 @@ void Empresa::adicionaMotorista(const Motorista& m)
 	this->motoristas.insert(m);
 }
 
-void Empresa::removeMotorista(const Motorista& m)
+/**
+* @brief Remove um determinado motorista dos motoristas da empresa
+* @param m Motorista a remover
+* @return O retorno é 0, se o motorista existir e for removido. -1 se o motorista não for encontrado.
+*/
+int Empresa::removeMotorista(const Motorista& m)
 {
-	this->motoristas.remove(m);
+	Motorista *pt = encontraMotorista(m.getNome(), m.getNif());
+	
+	if (pt == NULL)
+		return -1;
+
+	else
+	{
+		this->motoristas.remove(*pt);
+		return 0;
+	}
+}
+
+/**
+* @brief Remove um determinado motorista dos motoristas da empresa, através do seu nome e nif
+* @param nome Nome do motorista a remover
+* @param nif NIF do motorista a remover
+* @return O retorno é 0, se o motorista existir e for removido. -1 se o motorista não for encontrado.
+*/
+int Empresa::removeMotorista(string nome, unsigned int nif)
+{
+	Motorista* m = encontraMotorista(nome, nif);
+	
+	if (m != NULL)
+	{
+		removeMotorista(*m);
+		return 0;
+	}
+	else
+		return -1;
+}
+
+/**
+* @brief Aumenta as horas de serviço de um determinado motorista
+* @param m Motorista que sofre a alteração
+* @param horas Horas a aumentar nas horas de serviço do motorista
+* @return 0 se a mudança for bem sucedida. -1 se o número total de horas ultrapassar 24 (máximo diário possível).
+*/
+int Empresa::aumentaHorasMotorista(Motorista& m, unsigned int aumentoHoras)
+{
+	Motorista* pt = encontraMotorista(m.getNome(), m.getNif());	// apontador para o nó da BST
+
+	if (pt == NULL)
+		return -1;	// se foi um encontrado um nó com o elemento
+
+	unsigned int horasTotais = m.getHoras() + aumentoHoras; // novas horas para o condutor
+
+	if (horasTotais > 24)
+		return -1;
+	else
+	{
+		removeMotorista(*pt);	// apaga o nó da BST com o motorista (que fica desatualizado)
+		m.updateHoras(horasTotais); // faz a alteração das horas no objeto copiado
+		adicionaMotorista(m); // insere a cópia já alterada, para que seja inserida na ordem correta
+
+		return 0;
+	}
+}
+
+/**
+* @brief Aumenta as horas de serviço de um determinado motorista
+* @param nome Nome do Motorista que sofre a alteração
+* @param nif NIF do Motorista que sofre a alteração
+* @param horas Horas a aumentar nas horas de serviço do motorista
+* @return 0 se a mudança for bem sucedida. -1 se o número total de horas ultrapassar 24 (máximo diário possível).
+*/
+int Empresa::aumentaHorasMotorista(string nome, unsigned int nif, unsigned int aumentoHoras)
+{
+	Motorista* pt = encontraMotorista(nome, nif);
+
+	return aumentaHorasMotorista(*pt, aumentoHoras);
+}
+
+/**
+* @brief Faz update de um certo motorista na árvore, para que alterações às horas de serviço sejam tidas em conta na ordenação
+* @param m Motorista ao qual se alterou os atributos
+* @return Esta função não possui retorno
+*/
+void Empresa::updateMotorista(Motorista& m)
+{
+	Motorista copia = m;
+
+	removeMotorista(m);
+	adicionaMotorista(copia);
 }
 
 /**

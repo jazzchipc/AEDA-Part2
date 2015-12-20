@@ -89,8 +89,17 @@ public:
 	//Motoristas
 
 	BST<Motorista> getMotoristas();
+	Motorista* encontraMotorista(string nome, unsigned int nif);
+
 	void adicionaMotorista(const Motorista& m);
-	void removeMotorista(const Motorista& m);
+
+	int removeMotorista(const Motorista& m);
+	int removeMotorista(string nome, unsigned int nif);
+
+	int aumentaHorasMotorista(Motorista& m, unsigned int aumentoHoras);
+	int aumentaHorasMotorista(string nome, unsigned int nif, unsigned int aumentoHoras);
+
+	void updateMotorista(Motorista& m);
 	
 	Motorista getMaiorMotorista();
 	Motorista getMenorMotorista();

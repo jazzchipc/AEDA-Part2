@@ -27,7 +27,14 @@ int main()
 
 	empresa.getMotoristas().printTree();
 
-	empresa.removeMotorista(m4);
+	cout << empresa.removeMotorista(m4);
+	cout << empresa.removeMotorista("C", 3333);
+	cout << empresa.removeMotorista("Z", 0);
+	cout << empresa.aumentaHorasMotorista(m1, 10);
+	cout << empresa.aumentaHorasMotorista(m1, 10);
+	cout << empresa.aumentaHorasMotorista(m1, 10);
+
+	cout << endl;
 
 	empresa.getMotoristas().printTree();
 

@@ -22,6 +22,17 @@ Motorista::Motorista(string nome, unsigned int nif, unsigned int horas)
 }
 
 /**
+* \brief Construtor default de um Motorista. O nome fica a string vazia "", o nif e as horas são 0.
+* \return Esta função não possui retorno
+*/
+Motorista::Motorista()
+{
+	this->nome = "";
+	this->nif = 0;
+	this->horas = 0;
+}
+
+/**
 * \brief Cria um Motorista usando os parâmetros para definir as sua caracteristicas, mas com as horas inicias predefinidas em 0
 * \param nome Nome do Motorista
 * \param nif NIF do Motorista
