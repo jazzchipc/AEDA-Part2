@@ -13,6 +13,10 @@
 #include "Frota.h"
 #include "BST.h"
 #include "Motorista.h"
+#include "Cliente.h"
+#include "ClienteInativo.h"
+#include <list>
+#include <tr1/unordered_set>
 
 using namespace std;
 
@@ -21,13 +25,14 @@ class Empresa
 	string nome;
 	vector <Servico*> servicos;
 	Frota frota;
-	float custoCong; // custo extra por capacidade de congelaÁ„o de um cami„o
+	float custoCong; // custo extra por capacidade de congela√ß√£o de um cami√£o
 	float custoPerig; // custo extra por capacidade de transporte de cargas perigosas
-	float custoDist; // custo por km percorrido pelo cami„o
+	float custoDist; // custo por km percorrido pelo cami√£o
 
 	// Parte 2
 
 	BST<Motorista> motoristas;
+	inativosHash clientesInativos;
 
 public:
 	//Construtor
@@ -39,37 +44,37 @@ public:
 	//Substitui a frota atual
 	void setFrota(Frota frota);
 
-	//Retorna um vetor com todos os serviÁos disponibilizados pela empresa
+	//Retorna um vetor com todos os servi√ßos disponibilizados pela empresa
 	vector<Servico*> getServicos() const;
 
 	//Retorna a frota atual da empresa
 	Frota getFrota() const;
 
-	//Adiciona um seviÁo ao vetor de serviÁos
+	//Adiciona um sevi√ßo ao vetor de servi√ßos
 	void adicionaServico(Servico *s1);
 
-	//Apaga um serviÁo do vetor de serviÁos, criando uma exceÁ„o se o serviÁo que se quer apagar n„o existir
+	//Apaga um servi√ßo do vetor de servi√ßos, criando uma exce√ß√£o se o servi√ßo que se quer apagar n√£o existir
 	void retiraServico (Servico *s1);
 
-	//Imprime no ecr„ os clientes que est„o a usar os serviÁos
+	//Imprime no ecr√£ os clientes que est√£o a usar os servi√ßos
 	void readServicos() const;
 
-	//Retorna um vetor com os serviÁos atualmente usados por um ou mais clientes
+	//Retorna um vetor com os servi√ßos atualmente usados por um ou mais clientes
 	vector< Servico*> returnAtivos();
 
-	//Retorna um vetor com os serviÁos que n„o est„o a ser usados
+	//Retorna um vetor com os servi√ßos que n√£o est√£o a ser usados
 	vector< Servico*> returnInativos();
 
-	//Imprime no monitor os preÁos e nomes dos serviÁos, ordenando-os de forma crescente de preÁo
+	//Imprime no monitor os pre√ßos e nomes dos servi√ßos, ordenando-os de forma crescente de pre√ßo
 	void printServicos();
 
-	//Procura os serviÁos utilizados por um cliente
+	//Procura os servi√ßos utilizados por um cliente
 	vector< Servico*> servicoCliente(string nome, unsigned int nif);
 
-	//Guarda a informaÁ„o da empresa num ficheiro com o nome da empresa
+	//Guarda a informa√ß√£o da empresa num ficheiro com o nome da empresa
 	void saveEmpresa();
 
-	//Vai buscar a informaÁ„o ao ficheiro com o nome da empresa
+	//Vai buscar a informa√ß√£o ao ficheiro com o nome da empresa
 	int loadEmpresa();
 
 	float getCustoCap() const;
@@ -104,7 +109,11 @@ public:
 	Motorista getMaiorMotorista();
 	Motorista getMenorMotorista();
 
-
+	inativosHash getClientesInativos();
+	void adicionaClienteInativo(const ClienteInativo& ci);
+	bool contemClienteInativo(string umCliente, unsigned int Nif);
+	void printClientesInativos();
+	list<string> listaClientesInativos();
 
 };
 
