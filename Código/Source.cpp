@@ -26,6 +26,11 @@ int main()
 	empresa.adicionaMotorista(m5);
 
 	empresa.getMotoristas().printTree();
+
+	empresa.removeMotorista(m4);
+
+	empresa.getMotoristas().printTree();
+
 	cout << empresa.getMaiorMotorista();
 	cout << empresa.getMenorMotorista();
 
