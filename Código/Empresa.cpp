@@ -578,7 +578,9 @@ list<string> Empresa::listaClientesInativos()
 		sl << (*it).getNome() << " " << (*it).getNif();
 	}
 
-	return ss.str();
+	cout << ss.str();
+
+	return final;
 
 }
 
