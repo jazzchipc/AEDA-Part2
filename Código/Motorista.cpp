@@ -98,9 +98,10 @@ void Motorista::updateHoras(unsigned int horas)
 */
 bool Motorista::operator<(const Motorista& m2) const
 {
-	if(horas < m2.horas)
+	if(this->horas <= m2.horas)	// usa-se <= em vez de <, porque senão motoristas com as mesmas horas seriam considerados iguais pela BST em BST.h
 		return true;
-	else return false;
+	else 
+		return false;
 }
 
 /**

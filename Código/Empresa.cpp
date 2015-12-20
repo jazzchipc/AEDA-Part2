@@ -21,7 +21,7 @@
 //Necessário para usar tabelas de dispersão
 #include <unordered_set>
 
-Motorista notFound ("", 0);
+Motorista notFound ("", -1, -1);
 
 /**
 * \brief Cria uma Empresa usando os parâmetros para definir as sua caracteristicas
