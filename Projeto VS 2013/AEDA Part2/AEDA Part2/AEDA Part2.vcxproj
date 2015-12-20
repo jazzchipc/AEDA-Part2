@@ -80,6 +80,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\Código\Camiao.cpp" />
     <ClCompile Include="..\..\..\Código\Cliente.cpp" />
+    <ClCompile Include="..\..\..\Código\ClienteInativo.cpp" />
     <ClCompile Include="..\..\..\Código\Empresa.cpp" />
     <ClCompile Include="..\..\..\Código\Frota.cpp" />
     <ClCompile Include="..\..\..\Código\Interface.cpp" />
@@ -92,6 +93,7 @@
     <ClInclude Include="..\..\..\Código\BST.h" />
     <ClInclude Include="..\..\..\Código\Camiao.h" />
     <ClInclude Include="..\..\..\Código\Cliente.h" />
+    <ClInclude Include="..\..\..\Código\ClienteInativo.h" />
     <ClInclude Include="..\..\..\Código\Empresa.h" />
     <ClInclude Include="..\..\..\Código\Frota.h" />
     <ClInclude Include="..\..\..\Código\includes.h" />

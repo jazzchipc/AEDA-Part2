@@ -668,7 +668,7 @@ bool Empresa::contemClienteInativo(string umCliente, unsigned int umNif)
 
 	inativosHash::const_iterator it = clientesInativos.find(ci1);
 
-	if(it = clientesInativos.end())
+	if(it == clientesInativos.end())
 		return false;
 	else
 		return true;
