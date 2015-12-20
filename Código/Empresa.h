@@ -90,6 +90,11 @@ public:
 
 	BST<Motorista> getMotoristas();
 	void adicionaMotorista(const Motorista& m);
+	
+	Motorista getMaiorMotorista();
+	Motorista getMenorMotorista();
+
+
 
 };
 

@@ -26,6 +26,8 @@ int main()
 	empresa.adicionaMotorista(m5);
 
 	empresa.getMotoristas().printTree();
+	cout << empresa.getMaiorMotorista();
+	cout << empresa.getMenorMotorista();
 
 	char c;
 	cin >> c;

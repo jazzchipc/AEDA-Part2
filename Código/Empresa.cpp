@@ -518,3 +518,21 @@ void Empresa::adicionaMotorista(const Motorista& m)
 	this->motoristas.insert(m);
 }
 
+/**
+* @brief Função que procura e retorna o motorista com MAIOR número de horas diárias efetuadas. Em caso de empate, o motorista a devolver depende da posição na BST.
+* @return Retorna o Motorista com mais horas diárias
+*/
+Motorista Empresa::getMaiorMotorista()
+{
+	return this->motoristas.findMax();
+}
+
+/**
+* @brief Função que procura e retorna o motorista com MENOR número de horas diárias efetuadas. Em caso de empate, o motorista a devolver depende da posição na BST.
+* @return Retorna o Motorista com menos horas diárias
+*/
+Motorista Empresa::getMenorMotorista()
+{
+	return this->motoristas.findMin();
+}
+
