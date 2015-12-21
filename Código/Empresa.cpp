@@ -350,8 +350,6 @@ int Empresa::loadEmpresa()
 				ids[cam].push_back(id);
 			}
 
-			int indice;
-
 			frota.adicionaCamiao(camiao);
 		}
 	}

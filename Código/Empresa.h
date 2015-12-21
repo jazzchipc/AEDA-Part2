@@ -16,7 +16,7 @@
 #include "Cliente.h"
 #include "ClienteInativo.h"
 #include <list>
-#include <unordered_set>
+#include <cstdint>
 
 using namespace std;
 
