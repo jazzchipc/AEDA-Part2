@@ -96,6 +96,8 @@ public:
 	BST<Motorista> getMotoristas();
 	Motorista* encontraMotorista(string nome, unsigned int nif);
 
+	int getNumeroMotoristas();
+
 	void adicionaMotorista(const Motorista& m);
 
 	int removeMotorista(const Motorista& m);
@@ -103,14 +105,18 @@ public:
 
 	int aumentaHorasMotorista(Motorista& m, unsigned int aumentoHoras);
 	int aumentaHorasMotorista(string nome, unsigned int nif, unsigned int aumentoHoras);
-
-	void updateMotorista(Motorista& m);
 	
 	Motorista getMaiorMotorista();
 	Motorista getMenorMotorista();
 
+	list<Motorista> getMaioresMotoristas(unsigned int n);
+	list<Motorista> getMenoresMotoristas(unsigned int n);
+
+	//Clientes Inativos
+
 	inativosHash getClientesInativos();
 	void adicionaClienteInativo(const ClienteInativo& ci);
+	void removeClienteInativo(const ClienteInativo& ci);
 	bool contemClienteInativo(string umCliente, unsigned int Nif);
 	void printClientesInativos();
 	list<string> listaClientesInativos();

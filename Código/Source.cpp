@@ -18,12 +18,22 @@ int main()
 	Motorista m3 ("C", 3333, 9);
 	Motorista m4 ("D", 90901, 10);
 	Motorista m5 ("E", 11, 9);
+	Motorista m6("F", 333);
+	Motorista m7("G", 111);
+	Motorista m8("H", 3333, 9);
+	Motorista m9("I", 90901, 10);
+	Motorista m10("J", 11, 9);
 
 	empresa.adicionaMotorista(m1);
 	empresa.adicionaMotorista(m2);
 	empresa.adicionaMotorista(m3);
 	empresa.adicionaMotorista(m4);
 	empresa.adicionaMotorista(m5);
+	empresa.adicionaMotorista(m6);
+	empresa.adicionaMotorista(m7);
+	empresa.adicionaMotorista(m8);
+	empresa.adicionaMotorista(m9);
+	empresa.adicionaMotorista(m10);
 
 	empresa.getMotoristas().printTree();
 
@@ -40,6 +50,8 @@ int main()
 
 	cout << empresa.getMaiorMotorista();
 	cout << empresa.getMenorMotorista();
+
+	printListaMotoristas(empresa.getMenoresMotoristas(5));
 
 	char c;
 	cin >> c;

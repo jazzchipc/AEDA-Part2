@@ -12,16 +12,20 @@
 #include <iomanip>
 #include <vector>
 #include <string>
+#include <list>
+#include <iomanip>
 
 using namespace std;
+
+const int WIDTH = 10;
 
 class Motorista
 {private:
 	string nome;
 	unsigned int nif;
-	unsigned int horas;
+	float horas;
 public:
-	Motorista(string nome, unsigned int nif, unsigned int horas);
+	Motorista(string nome, unsigned int nif, float horas);
 	Motorista(string nome, unsigned int nif);
 	Motorista();
 	~Motorista(){};
@@ -30,7 +34,7 @@ public:
 	unsigned int getHoras() const;
 	void updateNome(string nome);
 	void updateNif(unsigned int nif);
-	void updateHoras(unsigned int horas);
+	void updateHoras(float horas);
 	bool operator<(const Motorista& m2) const;
 	bool operator==(const Motorista& m2) const;
 
@@ -38,6 +42,7 @@ public:
 
 };
 
+void printListaMotoristas(list<Motorista> l);
 
 
 #endif /* SRC_MOTORISTA_H_ */

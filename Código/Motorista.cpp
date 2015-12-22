@@ -14,7 +14,7 @@
 * \param horas Número de horas diárias (já efetuadas)
 * \return Esta função não possui retorno
 */
-Motorista::Motorista(string nome, unsigned int nif, unsigned int horas)
+Motorista::Motorista(string nome, unsigned int nif, float horas)
 {
 	this->nome = nome;
 	this->nif = nif;
@@ -97,7 +97,7 @@ void Motorista::updateNif(unsigned int nif)
 * \param nif Novo valor das horas
 * \return Esta função não possui retorno
 */
-void Motorista::updateHoras(unsigned int horas)
+void Motorista::updateHoras(float horas)
 {
 	this->horas = horas;
 }
@@ -129,6 +129,17 @@ bool Motorista::operator==(const Motorista& m2) const
 		return true;
 	else
 		return false;
+}
+
+void printListaMotoristas(list<Motorista> l)
+{
+	cout << setw(WIDTH) << "Nome" << setw(WIDTH) << "NIF" << setw(WIDTH) << "Horas" << endl << endl;
+
+	while (!l.empty())
+	{
+		cout << l.front() << endl;
+		l.pop_front();
+	}
 }
 
 /**

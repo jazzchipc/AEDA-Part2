@@ -498,6 +498,8 @@ void Empresa::setCustoDist(float n)
  *    	 PARTE 2	   *
  ***********************/
 
+/***MOTORISTAS***/
+
 /**
  * @brief Retorna a BST que contÃ©m os motoristas da Empresa
  * @return A BST com os motoristas
@@ -528,6 +530,28 @@ Motorista* Empresa::encontraMotorista(string nome, unsigned int nif)
 	}
 
 	return NULL;
+}
+
+/**
+* @brief Função que retorna o número de motoristas da empresa
+* @return Número de motoristas da empresa
+*/
+int Empresa::getNumeroMotoristas()
+{
+
+	int ret = 0;
+	
+	BSTItrIn <Motorista> it(motoristas); // it é um iterador da BST "motoristas"
+
+	while (!it.isAtEnd())
+	{
+		ret++;
+
+		it.advance();
+	}
+
+	return ret;
+	
 }
 
 /**
@@ -620,19 +644,6 @@ int Empresa::aumentaHorasMotorista(string nome, unsigned int nif, unsigned int a
 }
 
 /**
-* @brief Faz update de um certo motorista na árvore, para que alterações às horas de serviço sejam tidas em conta na ordenação
-* @param m Motorista ao qual se alterou os atributos
-* @return Esta função não possui retorno
-*/
-void Empresa::updateMotorista(Motorista& m)
-{
-	Motorista copia = m;
-
-	removeMotorista(m);
-	adicionaMotorista(copia);
-}
-
-/**
 * @brief FunÃ§Ã£o que procura e retorna o motorista com MAIOR nÃºmero de horas diÃ¡rias efetuadas. Em caso de empate, o motorista a devolver depende da posiÃ§Ã£o na BST.
 * @return Retorna o Motorista com mais horas diÃ¡rias
 */
@@ -650,6 +661,50 @@ Motorista Empresa::getMenorMotorista()
 	return this->motoristas.findMin();
 }
 
+/**
+* @brief Esta função devolve uma lista com os motoristas que têm menos horas diárias de trabalho
+* @param n Número de motoristas que se quer que a lista tenha
+* @return Lista com os motoristas com menor número de horas diárias
+*/
+list<Motorista> Empresa::getMaioresMotoristas(unsigned int n)
+{
+	list<Motorista> ret;
+
+	BST<Motorista> copia = this->motoristas;
+
+	for (unsigned int i = 0; i < n && i < this->getNumeroMotoristas(); i++)
+	{
+		ret.push_back(copia.findMax());	// faz push do menor elemento da árvore para a lista
+
+		copia.remove(copia.findMax());	// elimina o menor elemento, passando ao elemento imediatamente a seguir na próxima iteração
+	}
+
+	return ret;
+}
+
+/**
+* @brief Esta função devolve uma lista com os motoristas que têm mais horas diárias de trabalho
+* @param n Número de motoristas que se quer que a lista tenha
+* @return Lista com os motoristas com maior número de horas diárias
+*/
+list<Motorista> Empresa::getMenoresMotoristas(unsigned int n)
+{
+	list<Motorista> ret;
+
+	BST<Motorista> copia = this->motoristas;
+
+	for (unsigned int i = 0; i < n && i < this->getNumeroMotoristas(); i++)
+	{
+		ret.push_back(copia.findMin());	// faz push do menor elemento da árvore para a lista
+
+		copia.remove(copia.findMin());	// elimina o menor elemento, passando ao elemento imediatamente a seguir na próxima iteração
+	}
+
+	return ret;
+}
+
+/***CLIENTES INATIVOS***/
+
 inativosHash Empresa::getClientesInativos()
 {
 	return clientesInativos;
@@ -658,6 +713,11 @@ inativosHash Empresa::getClientesInativos()
 void Empresa::adicionaClienteInativo(const ClienteInativo& ci)
 {
 	clientesInativos.insert(ci);
+}
+
+void Empresa::removeClienteInativo(const ClienteInativo& ci)
+{
+	clientesInativos.erase(ci);
 }
 
 bool Empresa::contemClienteInativo(string umCliente, unsigned int umNif)
