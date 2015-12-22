@@ -19,9 +19,38 @@ ostream& operator<<(ostream& os, Oficina of)
 	return os;
 }
 
+unsigned int ListaOficinas::numeroOficinas() const
+{
+	return oficinas.size();
+}
+
 unsigned ListaOficinas::adicionaOficina(Oficina& of)
 {
 	oficinas.push(of);
+}
+
+unsigned ListaOficinas::removeOficina(Oficina& of)
+{
+	vector<Oficina> tmp;
+
+	while (!oficinas.empty())
+	{
+		if (of.getDenominacao() == oficinas.top().getDenominacao())
+		{
+			oficinas.pop();
+			for (unsigned int i = 0; i < tmp.size(); i++)
+			{
+				oficinas.push(tmp[i]);
+			}
+		}
+		else
+		{
+			Oficina &of = oficinas.top();
+			tmp.push_back(of);
+			oficinas.pop();
+		}
+
+	}
 }
 
 // função que impime lista de oficinas
@@ -49,7 +78,7 @@ Oficina ListaOficinas::retornaOficina(Camiao& c, bool servico)
 {
 	Oficina &of = NULL;
 
-	if(servico) // serviço == true , serviço normal
+	if (servico) // serviço == true , serviço normal
 		return oficinas.top();
 
 	vector<Oficina> tmp;
@@ -60,10 +89,10 @@ Oficina ListaOficinas::retornaOficina(Camiao& c, bool servico)
 		{
 			of = oficinas.top();
 			oficinas.pop();
-			unsigned int disp= oficinas.top().getDisponibilidade() -1;
+			unsigned int disp = oficinas.top().getDisponibilidade() - 1;
 			of.updateDisponibilidade(disp);
 			oficinas.push(of);
-			for(unsigned int i=0; i < tmp.size(); i++)
+			for (unsigned int i = 0; i < tmp.size(); i++)
 			{
 				oficinas.push(tmp[i]);
 			}
@@ -71,7 +100,7 @@ Oficina ListaOficinas::retornaOficina(Camiao& c, bool servico)
 		}
 		else
 		{
-			of= oficinas.top();
+			of = oficinas.top();
 			tmp.push_back(of);
 			oficinas.pop();
 		}
