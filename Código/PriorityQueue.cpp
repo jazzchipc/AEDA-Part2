@@ -6,6 +6,7 @@
 #include <vector>
 #include <string>
 #include <utility>
+#include <sstream>
 
 using namespace std;
 
@@ -27,6 +28,8 @@ unsigned int ListaOficinas::numeroOficinas() const
 unsigned ListaOficinas::adicionaOficina(Oficina& of)
 {
 	oficinas.push(of);
+
+	return 0;
 }
 
 unsigned ListaOficinas::removeOficina(Oficina& of)
@@ -51,6 +54,8 @@ unsigned ListaOficinas::removeOficina(Oficina& of)
 		}
 
 	}
+
+	return 0;
 }
 
 // função que impime lista de oficinas
@@ -76,7 +81,7 @@ string ListaOficinas::imprimeOficinas() const
 
 Oficina ListaOficinas::retornaOficina(Camiao& c, bool servico)
 {
-	Oficina &of = NULL;
+	Oficina of;
 
 	if (servico) // serviço == true , serviço normal
 		return oficinas.top();
@@ -110,7 +115,7 @@ Oficina ListaOficinas::retornaOficina(Camiao& c, bool servico)
 
 }
 
-unsigned ListaOficinas::finalizaServico(Oficina &of)
+unsigned ListaOficinas::finalizaServico(Oficina& of)
 {
 	vector<Oficina> tmp;
 
@@ -119,8 +124,7 @@ unsigned ListaOficinas::finalizaServico(Oficina &of)
 	{
 		if (oficinas.top().getDenominacao() == of.getDenominacao())
 		{
-			of.getDisponibilidade() = of.getDisponibilidade() + 1;
-			of.updateDisponibilidade(of.getDisponibilidade());
+			of.updateDisponibilidade(of.getDisponibilidade() + 1);
 			oficinas.push(of);
 		}
 		else
@@ -131,5 +135,5 @@ unsigned ListaOficinas::finalizaServico(Oficina &of)
 		}
 	}
 
-	return;
+	return 0;
 }

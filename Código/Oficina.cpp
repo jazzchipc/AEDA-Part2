@@ -78,3 +78,10 @@ void Oficina::updateDisponibilidade(unsigned int disponibilidade)
 	this->disponibilidade = disponibilidade;
 }
 
+bool Oficina::operator<(const Oficina& o1) const
+{
+	if (this->disponibilidade < o1.disponibilidade)
+		return true;
+	else
+		return false;
+}

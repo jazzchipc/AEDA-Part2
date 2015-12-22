@@ -22,7 +22,8 @@ class Oficina
 	unsigned int disponibilidade;
 public:
 	Oficina(string denominacao, string especialidade, unsigned int disponibilidade);
-	~Oficina();
+	Oficina(){};
+	~Oficina(){};
 	string getDenominacao() const;
 	string getEspecialidade() const;
 	unsigned int getDisponibilidade() const;
@@ -30,6 +31,7 @@ public:
 	void updateEspecialidade(string especialidade);
 	void updateDisponibilidade(unsigned int disponibilidade);
 
+	bool operator<(const Oficina& o1) const;
 };
 
 
