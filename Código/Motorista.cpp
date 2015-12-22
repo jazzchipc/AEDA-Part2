@@ -67,7 +67,7 @@ unsigned int Motorista::getNif() const
 * \brief Obtém o número de horas de serviço de um Motorista
 * \return Retorna o número de horas de serviço de um Motorista
 */
-unsigned int Motorista::getHoras() const
+float Motorista::getHoras() const
 {
 	return horas;
 }
@@ -133,11 +133,11 @@ bool Motorista::operator==(const Motorista& m2) const
 
 void printListaMotoristas(list<Motorista> l)
 {
-	cout << setw(WIDTH) << "Nome" << setw(WIDTH) << "NIF" << setw(WIDTH) << "Horas" << endl << endl;
+	cout << setw(WIDTH_NOME) << left << "Nome" << setw(WIDTH_NIF) << "NIF" << setw(WIDTH_HORAS) << "Horas" << endl << endl;
 
 	while (!l.empty())
 	{
-		cout << l.front() << endl;
+		cout << l.front();
 		l.pop_front();
 	}
 }
@@ -149,7 +149,7 @@ void printListaMotoristas(list<Motorista> l)
  */
 ostream& operator << (ostream& os, const Motorista& m)
 {
-	os << m.getNome() << "; " << m.getNif() << "; " << m.getHoras() << endl;
+	os << setw(WIDTH_NOME) << left << m.getNome() << setw(WIDTH_NIF) << m.getNif() << setw(WIDTH_HORAS) << m.getHoras() << endl;
 
 	return os;
 }

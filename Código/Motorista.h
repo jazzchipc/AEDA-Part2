@@ -17,7 +17,9 @@
 
 using namespace std;
 
-const int WIDTH = 10;
+const int WIDTH_NOME = 20;
+const int WIDTH_NIF = 10;
+const int WIDTH_HORAS = 8;
 
 class Motorista
 {private:
@@ -31,7 +33,7 @@ public:
 	~Motorista(){};
 	string getNome() const;
 	unsigned int getNif() const;
-	unsigned int getHoras() const;
+	float getHoras() const;
 	void updateNome(string nome);
 	void updateNif(unsigned int nif);
 	void updateHoras(float horas);

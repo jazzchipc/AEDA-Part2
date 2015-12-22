@@ -736,19 +736,26 @@ list<string> Empresa::listaClientesInativos()
 {
 	list<string> final;
 
-	stringstream ss;
-
 	for(inativosHash::const_iterator it = clientesInativos.begin(); it != clientesInativos.end(); it++)
 	{
-		ss << (*it).getNome() << " " << (*it).getNif() << endl;
-
 		stringstream sl;
-		sl << (*it).getNome() << " " << (*it).getNif();
-	}
 
-	cout << ss.str();
+		sl << (*it).getNome() << " " << (*it).getNif() << endl;
+
+		final.push_back(sl.str());
+	}
 
 	return final;
 
 }
 
+void Empresa::printClientesInativos()
+{
+	list<string> l = this->listaClientesInativos();
+
+	while (!l.empty())
+	{
+		cout << l.front();
+		l.pop_front();
+	}
+}

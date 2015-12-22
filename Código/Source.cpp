@@ -20,9 +20,9 @@ int main()
 	Motorista m5 ("E", 11, 9);
 	Motorista m6("F", 333);
 	Motorista m7("G", 111);
-	Motorista m8("H", 3333, 9);
+	Motorista m8("H", 3333, 8.12);
 	Motorista m9("I", 90901, 10);
-	Motorista m10("J", 11, 9);
+	Motorista m10("Jose COsta", 11, 9);
 
 	empresa.adicionaMotorista(m1);
 	empresa.adicionaMotorista(m2);
