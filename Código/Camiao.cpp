@@ -15,7 +15,7 @@
 #include "sequentialSearch.h"
 
 /**
-* \brief Cria um Camião usando os parâmetros para definir as sua caracteristicas
+* \brief Cria um Camião usando os parâmetros para definir as sua caracteristicas, com a marca "Volvo" por defeito
 * \param codigo Codigo identificador do Camião
 * \param cap_max Capacidade Máxima do Camião
 * \param cap_cong Valor Lógico da Capacidade de Congelação do Camião
@@ -29,7 +29,37 @@ Camiao::Camiao(int codigo, unsigned int cap_max, bool cap_cong, bool cap_perig)
 	this->cap_max = cap_max;
 	this->cap_cong = cap_cong;
 	this->cap_perig = cap_perig;
+
+	this->marca = "Volvo";
 }
+
+/**
+* \brief Cria um Camião usando os parâmetros para definir as sua caracteristicas
+* \param codigo Codigo identificador do Camião
+* \param cap_max Capacidade Máxima do Camião
+* \param cap_cong Valor Lógico da Capacidade de Congelação do Camião
+* \param cap_perig Valor Lógico da Capacidade de Transporte de Cargas Perigosas do Camião
+* \param taxa Custo da utilização do camião por cada quilómetro percorrido (€/km)
+* \param marca Marca do camião
+* \return Esta função não possui retorno
+*/
+Camiao::Camiao(int codigo, unsigned int cap_max, bool cap_cong, bool cap_perig, string marca)
+{
+	this->codigo = codigo;
+	this->cap_max = cap_max;
+	this->cap_cong = cap_cong;
+	this->cap_perig = cap_perig;
+	this->marca = marca;
+}
+
+Camiao::Camiao(int codigo, string marca)
+{
+	this->codigo = codigo;
+	this->cap_max = 1000;
+	this->cap_cong = false;
+	this->cap_perig = false;
+	this->marca = marca;
+} 
 
 /**
 * \brief Obtém a Capacidade Máxima de um Camião

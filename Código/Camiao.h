@@ -23,10 +23,18 @@ class Camiao
 	unsigned int cap_max;
 	bool cap_cong;
 	bool cap_perig;
-	
+
 	vector<Servico *> servicos;
+
+	//Parte 2
+
+	string marca;
 public:
+	Camiao(int codigo, unsigned int cap_max, bool cap_cong, bool cap_perig, string marca);
 	Camiao(int codigo, unsigned int cap_max, bool cap_cong, bool cap_perig);
+	
+	Camiao(int codigo, string marca); // Parte 2
+
 	~Camiao() {};
 	unsigned int getCapMax() const;
 	bool getCapCong() const;
@@ -41,6 +49,12 @@ public:
 	void retiraServico(Servico* s1);
 
 	bool operator==(const Camiao &c1);
+
+	//Parte 2
+
+	string getMarca() { return marca; };
+	void updateMarca(string marca) { this->marca = marca; };
+
 };
 
 class CamiaoInexistente
