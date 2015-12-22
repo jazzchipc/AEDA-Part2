@@ -86,6 +86,7 @@
     <ClCompile Include="..\..\..\Código\Interface.cpp" />
     <ClCompile Include="..\..\..\Código\Motorista.cpp" />
     <ClCompile Include="..\..\..\Código\Oficina.cpp" />
+    <ClCompile Include="..\..\..\Código\PriorityQueue.cpp" />
     <ClCompile Include="..\..\..\Código\Servico.cpp" />
     <ClCompile Include="..\..\..\Código\Source.cpp" />
   </ItemGroup>
@@ -100,6 +101,7 @@
     <ClInclude Include="..\..\..\Código\Interface.h" />
     <ClInclude Include="..\..\..\Código\Motorista.h" />
     <ClInclude Include="..\..\..\Código\Oficina.h" />
+    <ClInclude Include="..\..\..\Código\PriorityQueue.h" />
     <ClInclude Include="..\..\..\Código\sequentialSearch.h" />
     <ClInclude Include="..\..\..\Código\Servico.h" />
   </ItemGroup>
