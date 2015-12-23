@@ -14,6 +14,7 @@
 #include <string>
 
 #include "Servico.h"
+#include "Oficina.h"
 
 using namespace std;
 
@@ -29,6 +30,10 @@ class Camiao
 	//Parte 2
 
 	string marca;
+	bool reparacao;
+	int duracao;
+	Oficina oficina;
+
 public:
 	Camiao(int codigo, unsigned int cap_max, bool cap_cong, bool cap_perig, string marca);
 	Camiao(int codigo, unsigned int cap_max, bool cap_cong, bool cap_perig);
@@ -54,6 +59,15 @@ public:
 
 	string getMarca() { return marca; };
 	void updateMarca(string marca) { this->marca = marca; };
+
+	bool getReparacao();
+	void setReparacao(bool reparacao);
+
+	int getDuracao();
+	void setDuracao(int duracao);
+
+	Oficina& getOficina();
+	void setOficina(Oficina o);
 
 };
 

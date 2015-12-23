@@ -31,6 +31,8 @@ Camiao::Camiao(int codigo, unsigned int cap_max, bool cap_cong, bool cap_perig)
 	this->cap_perig = cap_perig;
 
 	this->marca = "Volvo";
+	this->reparacao = false;
+	this->duracao = 0;
 }
 
 /**
@@ -59,6 +61,8 @@ Camiao::Camiao(int codigo, string marca)
 	this->cap_cong = false;
 	this->cap_perig = false;
 	this->marca = marca;
+
+	this->reparacao = false;
 } 
 
 /**
@@ -175,6 +179,35 @@ bool Camiao::operator==(const Camiao &c1)
 		return false;
 }
 
+bool Camiao::getReparacao()
+{
+	return this->reparacao;
+}
+
+void Camiao::setReparacao(bool reparacao)
+{
+	this->reparacao = reparacao;
+}
+
+int Camiao::getDuracao()
+{
+	return this->duracao;
+}
+
+void Camiao::setDuracao(int duracao)
+{
+	this->duracao = duracao;
+}
+
+Oficina& Camiao::getOficina()
+{
+	return this->oficina;
+}
+
+void Camiao::setOficina(Oficina o)
+{
+	this->oficina = o;
+}
 
 
 

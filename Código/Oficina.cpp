@@ -91,17 +91,3 @@ bool Oficina::operator<(const Oficina& o1) const
 		return false;
 }
 
-void Oficina::removeServico()
-{
-	this->servicosAtivos.pop();
-}
-
-void Oficina::adicionaServico(ServicoOficina s)
-{
-	this->servicosAtivos.push(s);
-}
-
-queue<ServicoOficina> Oficina::getServicosAtivos()
-{
-	return this->servicosAtivos;
-}

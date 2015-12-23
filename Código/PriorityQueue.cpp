@@ -106,11 +106,12 @@ string ListaOficinas::imprimeOficinas() const
 * \param s Serviço especificado 
 * \return Retorna a Oficina que pode executar o serviço mais rapidamente
 */
-Oficina ListaOficinas::retornaOficina(Camiao c, ServicoOficina s)
+Oficina ListaOficinas::retornaOficina(Camiao& c, ServicoOficina s)
 {
 	Oficina of;
 
-	of.adicionaServico(s);
+	c.setDuracao(s.getDuracao());
+	c.setReparacao(true);
 
 	if (!s.getEspecifico()) // serviço normal
 	{
@@ -138,6 +139,7 @@ Oficina ListaOficinas::retornaOficina(Camiao c, ServicoOficina s)
 			{
 				oficinas.push(tmp[i]);
 			}
+			c.setOficina(of);
 			return of;
 		}
 		else
@@ -148,6 +150,8 @@ Oficina ListaOficinas::retornaOficina(Camiao c, ServicoOficina s)
 		}
 	}
 
+	c.setOficina(of);
+
 	return of;
 
 }
@@ -155,21 +159,19 @@ Oficina ListaOficinas::retornaOficina(Camiao c, ServicoOficina s)
 /**
 * \brief Aumenta a disponibilidade de uma Oficina que termine um certo serviço
 * \param of Oficina a atualizar 
-* \param s Servico de reparacao a ser finalizado
+* \param duracao Duração do serviço a terminar
 * \return Retorna 0
 */
-unsigned ListaOficinas::finalizaServico(Oficina& of, ServicoOficina s)
+unsigned ListaOficinas::finalizaServico(Oficina& of, int duracao)
 {
 	vector<Oficina> tmp;
-
-	of.removeServico();
 
 	while (!oficinas.empty())
 	{
 		if (oficinas.top().getDenominacao() == of.getDenominacao())
 		{
 			oficinas.pop();
-			of.updateDisponibilidade(of.getDisponibilidade() - s.getDuracao());
+			of.updateDisponibilidade(of.getDisponibilidade() - duracao);
 			oficinas.push(of);
 			break;
 		}

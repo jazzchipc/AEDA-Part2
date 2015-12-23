@@ -961,63 +961,74 @@ void menuOficinas(Empresa &empresa)
 
 	c1 = empresa.getFrota().getCamioes()[sequentialSearch(empresa.getFrota().getCamioes(), c1)];
 
-	char c;
-
-	while (1)
+	if (c1->getReparacao() == true)
 	{
-		cout << "A reparcao e (N)ormal ou (E)specifica?: ";
-		getline(cin, input);
-
-		stringstream myStream(input);
-		if (myStream >> c)
-		{
-			if (c == 'E' || c == 'e' || c == 'N' || c == 'n')
-				break;
-		}
-		cout << "Escreva \"E\" ou \"N\"." << endl;
+		empresa.getOficinas().finalizaServico(c1->getOficina(), c1->getDuracao());
+		c1->setReparacao(false);
+		c1->setDuracao(0);
 	}
 
-	bool especifico;
-
-	if (c == 'E' || c == 'e')
-	{
-		especifico = true;
-	}
 	else
 	{
-		especifico = false;
-	}
 
-	while (1)
-	{
-		cout << "A reparcao e (T)otal (3 dias) ou (P)arcial (1 dia)?: ";
-		getline(cin, input);
+		char c;
 
-		stringstream myStream(input);
-		if (myStream >> c)
+		while (1)
 		{
-			if (c == 'T' || c == 't' || c == 'P' || c == 'p')
-				break;
+			cout << "A reparcao e (N)ormal ou (E)specifica?: ";
+			getline(cin, input);
+
+			stringstream myStream(input);
+			if (myStream >> c)
+			{
+				if (c == 'E' || c == 'e' || c == 'N' || c == 'n')
+					break;
+			}
+			cout << "Escreva \"E\" ou \"N\"." << endl;
 		}
-		cout << "Escreva \"T\" ou \"P\"." << endl;
+
+		bool especifico;
+
+		if (c == 'E' || c == 'e')
+		{
+			especifico = true;
+		}
+		else
+		{
+			especifico = false;
+		}
+
+		while (1)
+		{
+			cout << "A reparcao e (T)otal (3 dias) ou (P)arcial (1 dia)?: ";
+			getline(cin, input);
+
+			stringstream myStream(input);
+			if (myStream >> c)
+			{
+				if (c == 'T' || c == 't' || c == 'P' || c == 'p')
+					break;
+			}
+			cout << "Escreva \"T\" ou \"P\"." << endl;
+		}
+
+		cout << endl << "Oficina a que foi atribuida a reparacao: " << endl;
+
+		int duracao;
+
+		if (c == 'P' || c == 'p')
+		{
+			duracao = 1;
+		}
+		else
+		{
+			duracao = 3;
+		}
+
+		ServicoOficina s(especifico, duracao);
+
+		cout << empresa.getOficinas().retornaOficina(*c1, s);
 	}
-
-	cout << endl << "Oficina a que foi atribuida a reparacao: " << endl;
-
-	int duracao;
-
-	if (c == 'P' || c == 'p')
-	{
-		duracao = 1;
-	}
-	else
-	{
-		duracao = 3;
-	}
-
-	ServicoOficina s(especifico, duracao);
-
-	cout << empresa.getOficinas().retornaOficina(*c1, s);
 
 	primaEnter();
 

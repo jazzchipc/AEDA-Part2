@@ -46,10 +46,6 @@ public:
 	string getEspecialidade() const;
 	unsigned int getDisponibilidade() const;
 
-	void adicionaServico(ServicoOficina s); 
-	void removeServico();
-	queue<ServicoOficina> getServicosAtivos();
-
 
 	void updateDenominacao(string denominacao);
 	void updateEspecialidade(string especialidade);
