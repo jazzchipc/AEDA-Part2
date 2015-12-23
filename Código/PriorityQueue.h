@@ -27,7 +27,7 @@ public:
 	unsigned removeOficina(Oficina& of);
 	string imprimeOficinas() const;
 	Oficina retornaOficina(Camiao c, ServicoOficina s);
-	unsigned finalizaServico(Oficina &of);
+	unsigned finalizaServico(Oficina &of, ServicoOficina s);
 };
 
 ostream& operator<<(ostream& os, Oficina of);

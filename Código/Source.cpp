@@ -54,8 +54,12 @@ int main()
 
 	ListaOficinas aux = empresa.getOficinas();
 
-	cout << aux.retornaOficina(c1, sn1);
+	Oficina o = aux.retornaOficina(c1, sn1);
 
+	cout << o;
+
+	aux.finalizaServico(o, sn1);
+	
 	cout << aux.imprimeOficinas();
 
 	char c;

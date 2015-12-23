@@ -123,7 +123,7 @@ Oficina ListaOficinas::retornaOficina(Camiao c, ServicoOficina s)
 
 }
 
-unsigned ListaOficinas::finalizaServico(Oficina& of)
+unsigned ListaOficinas::finalizaServico(Oficina& of, ServicoOficina s)
 {
 	vector<Oficina> tmp;
 
@@ -132,15 +132,22 @@ unsigned ListaOficinas::finalizaServico(Oficina& of)
 	{
 		if (oficinas.top().getDenominacao() == of.getDenominacao())
 		{
-			of.updateDisponibilidade(of.getDisponibilidade() + 1);
+			oficinas.pop();
+			of.updateDisponibilidade(of.getDisponibilidade() - s.getDuracao());
 			oficinas.push(of);
+			break;
 		}
 		else
 		{
 			Oficina &o = oficinas.top();
-			tmp.push_back(of);
+			tmp.push_back(o);
 			oficinas.pop();
 		}
+	}
+
+	for (int i = 0; i < tmp.size(); i++)
+	{
+		oficinas.push(tmp[i]);
 	}
 
 	return 0;

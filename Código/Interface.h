@@ -43,5 +43,12 @@ void adicionarCamiao(Empresa &empresa);
 void removerCamiao(Empresa &empresa);
 
 
+/**************PARTE 2*****************/
+
+/*Menu dos motoristas*/
+
+
+
+
 #endif // INTERFACE_H
 
