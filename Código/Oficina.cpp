@@ -8,11 +8,11 @@
 #include "Oficina.h"
 
 /**
-* \brief Cria uma Oficina usando os par‚metros para definir as sua caracteristicas
-* \param denominacao DenominaÁ„o da Oficina
-* \param especialidade Marca em que a Oficina È especializada
-* \param disponibilidade N˙mero de dias atÈ que a Oficina possa efetuar o serviÁo
-* \return Esta funÁ„o n„o possui retorno
+* \brief Cria uma Oficina usando os par√¢metros para definir as sua caracteristicas
+* \param denominacao Denomina√ß√£o da Oficina
+* \param especialidade Marca em que a Oficina √© especializada
+* \param disponibilidade N√∫mero de dias at√© que a Oficina possa efetuar o servi√ßo
+* \return Esta fun√ß√£o n√£o possui retorno
 */
 Oficina::Oficina(string denominacao, string especialidade, unsigned int disponibilidade)
 {
@@ -22,8 +22,8 @@ Oficina::Oficina(string denominacao, string especialidade, unsigned int disponib
 }
 
 /**
-* \brief ObtÈm a DenominaÁ„o de uma Oficina
-* \return Retorna a DenominaÁ„o de uma Oficina
+* \brief Obt√©m a Denomina√ß√£o de uma Oficina
+* \return Retorna a Denomina√ß√£o de uma Oficina
 */
 string Oficina::getDenominacao() const
 {
@@ -31,7 +31,7 @@ string Oficina::getDenominacao() const
 }
 
 /**
-* \brief ObtÈm a Especialidade de uma Oficina
+* \brief Obt√©m a Especialidade de uma Oficina
 * \return Retorna a Especialidade de uma Oficina
 */
 string Oficina::getEspecialidade() const
@@ -40,7 +40,7 @@ string Oficina::getEspecialidade() const
 }
 
 /**
-* \brief ObtÈm a Disponibilidade de uma Oficina
+* \brief Obt√©m a Disponibilidade de uma Oficina
 * \return Retorna a Disponibilidade de uma Oficina
 */
 unsigned int Oficina::getDisponibilidade() const
@@ -49,9 +49,9 @@ unsigned int Oficina::getDisponibilidade() const
 }
 
 /**
-* \brief Altera, se necess·rio, a denominaÁ„o de uma Oficina
-* \param denominacao Nova denominaÁ„o
-* \return Esta funÁ„o n„o possui retorno
+* \brief Altera, se necess√°rio, a denomina√ß√£o de uma Oficina
+* \param denominacao Nova denomina√ß√£o
+* \return Esta fun√ß√£o n√£o possui retorno
 */
 void Oficina::updateDenominacao(string denominacao)
 {
@@ -59,9 +59,9 @@ void Oficina::updateDenominacao(string denominacao)
 }
 
 /**
-* \brief Altera, se necess·rio, a especialidade de uma Oficina
+* \brief Altera, se necess√°rio, a especialidade de uma Oficina
 * \param denominacao Nova especialidade
-* \return Esta funÁ„o n„o possui retorno
+* \return Esta fun√ß√£o n√£o possui retorno
 */
 void Oficina::updateEspecialidade(string especialidade)
 {
@@ -69,15 +69,20 @@ void Oficina::updateEspecialidade(string especialidade)
 }
 
 /**
-* \brief Altera, se necess·rio, a disponibilidade de uma Oficina
+* \brief Altera, se necess√°rio, a disponibilidade de uma Oficina
 * \param denominacao Nova disponibilidade
-* \return Esta funÁ„o n„o possui retorno
+* \return Esta fun√ß√£o n√£o possui retorno
 */
 void Oficina::updateDisponibilidade(unsigned int disponibilidade)
 {
 	this->disponibilidade = disponibilidade;
 }
 
+/**
+* \brief Compara duas Oficinas para verificar se uma √© maior ou menos que a outra
+* \param o1 Uma das Oficinas a comparar
+* \return Retorna true se o1 √© menor e false caso contr√°rio
+*/
 bool Oficina::operator<(const Oficina& o1) const
 {
 	if (this->disponibilidade > o1.disponibilidade)

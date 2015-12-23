@@ -8,11 +8,11 @@
 #include "Motorista.h"
 
 /**
-* \brief Cria um Motorista usando os par‚metros para definir as sua caracteristicas
+* \brief Cria um Motorista usando os par√¢metros para definir as sua caracteristicas
 * \param nome Nome do Motorista
 * \param nif NIF do Motorista
-* \param horas N˙mero de horas di·rias (j· efetuadas)
-* \return Esta funÁ„o n„o possui retorno
+* \param horas N√∫mero de horas di√°rias (j√° efetuadas)
+* \return Esta fun√ß√£o n√£o possui retorno
 */
 Motorista::Motorista(string nome, unsigned int nif, float horas)
 {
@@ -22,8 +22,8 @@ Motorista::Motorista(string nome, unsigned int nif, float horas)
 }
 
 /**
-* \brief Construtor default de um Motorista. O nome fica a string vazia "", o nif e as horas s„o 0.
-* \return Esta funÁ„o n„o possui retorno
+* \brief Construtor default de um Motorista. O nome fica a string vazia "", o nif e as horas s√£o 0.
+* \return Esta fun√ß√£o n√£o possui retorno
 */
 Motorista::Motorista()
 {
@@ -33,10 +33,10 @@ Motorista::Motorista()
 }
 
 /**
-* \brief Cria um Motorista usando os par‚metros para definir as sua caracteristicas, mas com as horas inicias predefinidas em 0
+* \brief Cria um Motorista usando os par√¢metros para definir as sua caracteristicas, mas com as horas inicias predefinidas em 0
 * \param nome Nome do Motorista
 * \param nif NIF do Motorista
-* \return Esta funÁ„o n„o possui retorno
+* \return Esta fun√ß√£o n√£o possui retorno
 */
 Motorista::Motorista(string nome, unsigned int nif)
 {
@@ -46,7 +46,7 @@ Motorista::Motorista(string nome, unsigned int nif)
 }
 
 /**
-* \brief ObtÈm o Nome de um Motorista
+* \brief Obt√©m o Nome de um Motorista
 * \return Retorna o Nome de um Motorista
 */
 string Motorista::getNome() const
@@ -55,7 +55,7 @@ string Motorista::getNome() const
 }
 
 /**
-* \brief ObtÈm o NIF de um Motorista
+* \brief Obt√©m o NIF de um Motorista
 * \return Retorna o NIF de um Motorista
 */
 unsigned int Motorista::getNif() const
@@ -64,8 +64,8 @@ unsigned int Motorista::getNif() const
 }
 
 /**
-* \brief ObtÈm o n˙mero de horas de serviÁo de um Motorista
-* \return Retorna o n˙mero de horas de serviÁo de um Motorista
+* \brief Obt√©m o n√∫mero de horas de servi√ßo de um Motorista
+* \return Retorna o n√∫mero de horas de servi√ßo de um Motorista
 */
 float Motorista::getHoras() const
 {
@@ -73,9 +73,9 @@ float Motorista::getHoras() const
 }
 
 /**
-* \brief Altera, se necess·rio, o nome de um Motorista
+* \brief Altera, se necess√°rio, o nome de um Motorista
 * \param nome Novo nome
-* \return Esta funÁ„o n„o possui retorno
+* \return Esta fun√ß√£o n√£o possui retorno
 */
 void Motorista::updateNome(string nome)
 {
@@ -83,9 +83,9 @@ void Motorista::updateNome(string nome)
 }
 
 /**
-* \brief Altera, se necess·rio, o nif de um Motorista
+* \brief Altera, se necess√°rio, o nif de um Motorista
 * \param nif Novo nif
-* \return Esta funÁ„o n„o possui retorno
+* \return Esta fun√ß√£o n√£o possui retorno
 */
 void Motorista::updateNif(unsigned int nif)
 {
@@ -93,9 +93,9 @@ void Motorista::updateNif(unsigned int nif)
 }
 
 /**
-* \brief Altera, se necess·rio, o n˙mero de horas de serviÁo de um Motorista
+* \brief Altera, se necess√°rio, o n√∫mero de horas de servi√ßo de um Motorista
 * \param nif Novo valor das horas
-* \return Esta funÁ„o n„o possui retorno
+* \return Esta fun√ß√£o n√£o possui retorno
 */
 void Motorista::updateHoras(float horas)
 {
@@ -103,9 +103,9 @@ void Motorista::updateHoras(float horas)
 }
 
 /**
-* \brief Operador para verificar se um Motorista È maior ou menor que outro
+* \brief Operador para verificar se um Motorista √© maior ou menor que outro
 * \param m2 Motorista a comparar
-* \return Retorna verdadeiro se o primeiro a comparar tem menos horas de serviÁo di·rias, e falso caso contr·rio
+* \return Retorna verdadeiro se o primeiro a comparar tem menos horas de servi√ßo di√°rias, e falso caso contr√°rio
 */
 bool Motorista::operator<(const Motorista& m2) const
 {
@@ -118,7 +118,7 @@ bool Motorista::operator<(const Motorista& m2) const
 }
 
 /**
-* \brief Operador para verificar se um Motorista È igual a outro
+* \brief Operador para verificar se um Motorista √© igual a outro
 * \param m1 Primeiro motorista a comparar
 * \param m2 Segundo motorista a comparar
 * \return Retorna verdadeiro se os dois motoristas forem iguais e false se forem diferentes
@@ -131,6 +131,11 @@ bool Motorista::operator==(const Motorista& m2) const
 		return false;
 }
 
+/**
+* \brief Imprime as informa√ß√µes dos motoristas de uma lista
+* \param l Lista onde est√£o os motoristas cujas informa√ß√µes ser√£o imprimidas
+* \return Esta fun√ß√£o n√£o possui retorno
+*/
 void printListaMotoristas(list<Motorista> l)
 {
 	cout << setw(WIDTH_NOME) << left << "Nome" << setw(WIDTH_NIF) << "NIF" << setw(WIDTH_HORAS) << "Horas" << endl << endl;
@@ -143,7 +148,7 @@ void printListaMotoristas(list<Motorista> l)
 }
 
 /**
- * @brief Overload do operador "<<" para poder imprimir um Motorista no ecr„
+ * @brief Overload do operador "<<" para poder imprimir um Motorista no ecr√£
  * @param m Motorista a exportar
  * @return Ostream com os atributos do Motorista
  */

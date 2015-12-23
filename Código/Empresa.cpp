@@ -19,15 +19,15 @@
 #include "ClienteInativo.h"
 #include "sequentialSearch.h"
 
-//Necessário para usar tabelas de dispersão
+//NecessÃ¡rio para usar tabelas de dispersÃ£o
 #include <unordered_set>
 
 Motorista notFound ("", -1, -1);
 
 /**
-* \brief Cria uma Empresa usando os parâmetros para definir as sua caracteristicas
+* \brief Cria uma Empresa usando os parÃ¢metros para definir as sua caracteristicas
 * \param nome Nome da Empresa
-* \return Esta função não possui retorno
+* \return Esta funÃ§Ã£o nÃ£o possui retorno
 */
 Empresa::Empresa(string nome) : motoristas(notFound)
 {
@@ -37,7 +37,7 @@ Empresa::Empresa(string nome) : motoristas(notFound)
 /**
 * \brief Atribui um frota a uma Empresa
 * \param frota Frota a atribuir
-* \return Esta função não possui retorno
+* \return Esta funÃ§Ã£o nÃ£o possui retorno
 */
 void Empresa::setFrota(Frota frota)
 {
@@ -45,7 +45,7 @@ void Empresa::setFrota(Frota frota)
 }
 
 /**
-* \brief Obtém o vetor que guarda todos os Serviços da Empresa
+* \brief ObtÃ©m o vetor que guarda todos os ServiÃ§os da Empresa
 * \return Retorna o vetor
 */
 vector<Servico*> Empresa::getServicos() const
@@ -54,7 +54,7 @@ vector<Servico*> Empresa::getServicos() const
 }
 
 /**
-* \brief Obtém a frota da empresa
+* \brief ObtÃ©m a frota da empresa
 * \return Retorna o objeto Frota com a frota da empresa
 */
 
@@ -64,9 +64,9 @@ Frota Empresa::getFrota() const
 }
 
 /**
-* \brief Adiciona um Serviço ao vetor
-* \param s1 Serviço a adicionar
-* \return Esta função não possui retorno
+* \brief Adiciona um ServiÃ§o ao vetor
+* \param s1 ServiÃ§o a adicionar
+* \return Esta funÃ§Ã£o nÃ£o possui retorno
 */
 void Empresa::adicionaServico(Servico *s1)
 {
@@ -74,9 +74,9 @@ void Empresa::adicionaServico(Servico *s1)
 }
 
 /**
-* \brief Retira um Serviço do vetor, caso este lá esteja, caso contrário lança a excessão ClienteInexistente
-* \param s1 Serviço a retirar
-* \return Esta função não possui retorno
+* \brief Retira um ServiÃ§o do vetor, caso este lÃ¡ esteja, caso contrÃ¡rio lanÃ§a a excessÃ£o ClienteInexistente
+* \param s1 ServiÃ§o a retirar
+* \return Esta funÃ§Ã£o nÃ£o possui retorno
 */
 void Empresa::retiraServico(Servico *s1)
 {
@@ -88,8 +88,8 @@ void Empresa::retiraServico(Servico *s1)
 }
 
 /**
-* \brief Lê todas as informações dos serviços e dos clientes que usufruem deles
-* \return Esta função não possui retorno
+* \brief LÃª todas as informaÃ§Ãµes dos serviÃ§os e dos clientes que usufruem deles
+* \return Esta funÃ§Ã£o nÃ£o possui retorno
 */
 void Empresa::readServicos() const
 {
@@ -104,7 +104,7 @@ void Empresa::readServicos() const
 }
 
 /**
-* \brief Cria um vetor com todos os serviços ativos
+* \brief Cria um vetor com todos os serviÃ§os ativos
 * \return Retorna o vetor
 */
 vector< Servico*> Empresa::returnAtivos()
@@ -121,7 +121,7 @@ vector< Servico*> Empresa::returnAtivos()
 }
 
 /**
-* \brief Cria um vetor com todos os serviços inativos
+* \brief Cria um vetor com todos os serviÃ§os inativos
 * \return Retorna o vetor
 */
 vector< Servico*> Empresa::returnInativos()
@@ -138,14 +138,14 @@ vector< Servico*> Empresa::returnInativos()
 }
 
 /**
-* \brief Imprime todas as informações dos serviços do vetor
-* \return Esta função não possui retorno
+* \brief Imprime todas as informaÃ§Ãµes dos serviÃ§os do vetor
+* \return Esta funÃ§Ã£o nÃ£o possui retorno
 */
 void Empresa::printServicos()
 {
 	
-	/*Algoritmo para ordenar o vetor por ordem crescente do código identificador.
-	Foi feito depois do Doxygen, pelo que não é um função à parte.
+	/*Algoritmo para ordenar o vetor por ordem crescente do cÃ³digo identificador.
+	Foi feito depois do Doxygen, pelo que nÃ£o Ã© um funÃ§Ã£o Ã  parte.
 	Mecanismo Bubblesort.*/
 
 	int n = this->servicos.size();
@@ -178,7 +178,7 @@ void Empresa::printServicos()
 }
 
 /**
-* \brief Cria um vetor com todos os serviços cujo cliente identificado pelos parâmetros
+* \brief Cria um vetor com todos os serviÃ§os cujo cliente identificado pelos parÃ¢metros
 * \param nome Nome do Cliente a pesquisar
 * \param nif NIF do Cliente a pesquisar
 * \return Retorna o vetor criado
@@ -203,8 +203,8 @@ vector<Servico*> Empresa::servicoCliente(string nome, unsigned int nif) {
 }
 
 /**
-* \brief Guarda um Empresa, e consequentemente todas as suas informações, num ficheiro a especificar
-* \return Esta função não possui retorno
+* \brief Guarda um Empresa, e consequentemente todas as suas informaÃ§Ãµes, num ficheiro a especificar
+* \return Esta funÃ§Ã£o nÃ£o possui retorno
 */
 void Empresa::saveEmpresa()
 {
@@ -270,7 +270,7 @@ void Empresa::saveEmpresa()
 
 
 /*LISTA DE ERROS
-* -1 : não abriu o ficheiro com o nome dado
+* -1 : nÃ£o abriu o ficheiro com o nome dado
 * */
 
 /**
@@ -288,17 +288,17 @@ int Empresa::loadEmpresa()
 	ifstream input;
 	input.open(ficheiro);	//abre o ficheiro com o nome da empresa
 
-	if (!input.is_open())	// se o ficheiro não estiver aberto, quer dizer que não existe
+	if (!input.is_open())	// se o ficheiro nÃ£o estiver aberto, quer dizer que nÃ£o existe
 	{
 		cout << "Nao ha ficheiro para a empresa referida." << endl;
 		return -1;
 	}
 
-	string linha; // string que vai guardar o conteúdo da linha a ser lida
-	char lixo; // para descartar partes desnecessárias. Ex: serparadores (";")
+	string linha; // string que vai guardar o conteÃºdo da linha a ser lida
+	char lixo; // para descartar partes desnecessÃ¡rias. Ex: serparadores (";")
 
 
-	// Adicionar taxas e camiões à frota
+	// Adicionar taxas e camiÃµes Ã  frota
 
 	getline(input, linha);
 	istringstream copia0(linha);
@@ -356,7 +356,7 @@ int Empresa::loadEmpresa()
 
 	this->setFrota(frota);
 
-	// Adicionar os serviços e os respetivos clientes
+	// Adicionar os serviÃ§os e os respetivos clientes
 
 	int indice = 0;
 
@@ -429,8 +429,8 @@ int Empresa::loadEmpresa()
 }
 
 /**
-*\brief Obtém o custo extra da capacidade de congelação dos camiões da empresa
-* \return Retorna o custo extra da capacidade de congelação de camiões desta empresa
+*\brief ObtÃ©m o custo extra da capacidade de congelaÃ§Ã£o dos camiÃµes da empresa
+* \return Retorna o custo extra da capacidade de congelaÃ§Ã£o de camiÃµes desta empresa
 */
 
 float Empresa::getCustoCong() const
@@ -439,8 +439,8 @@ float Empresa::getCustoCong() const
 }
 
 /**
-*\brief Obtém o custo extra da capacidade de transporte de cargas perigosas 
-* \return Retorna o custo extra da capacidade de transporte de cargas perigosasde camiões desta empresa
+*\brief ObtÃ©m o custo extra da capacidade de transporte de cargas perigosas 
+* \return Retorna o custo extra da capacidade de transporte de cargas perigosasde camiÃµes desta empresa
 */
 
 float Empresa::getCustoPerig() const
@@ -450,8 +450,8 @@ float Empresa::getCustoPerig() const
 
 
 /**
-*\brief Obtém a taxa cobrada por cada km percorrido por um camião da empresa
-* \return Retorna o valor da taxa em /km
+*\brief ObtÃ©m a taxa cobrada por cada km percorrido por um camiÃ£o da empresa
+* \return Retorna o valor da taxa em Â/km
 */
 
 float Empresa::getCustoDist() const
@@ -461,9 +461,9 @@ float Empresa::getCustoDist() const
 
 
 /**
-*\brief Altera o custo extra de um camião com capacidade de congelação
-*\param n Novo preço
-* \return Esta função não poussui retorno
+*\brief Altera o custo extra de um camiÃ£o com capacidade de congelaÃ§Ã£o
+*\param n Novo preÃ§o
+* \return Esta funÃ§Ã£o nÃ£o poussui retorno
 */
 
 void Empresa::setCustoCong(float n)
@@ -472,9 +472,9 @@ void Empresa::setCustoCong(float n)
 }
 
 /**
-*\brief Altera o custo extra de um camião com capacidade de transportar cargas perigosas
-*\param n Novo preço
-* \return Esta função não poussui retorno
+*\brief Altera o custo extra de um camiÃ£o com capacidade de transportar cargas perigosas
+*\param n Novo preÃ§o
+* \return Esta funÃ§Ã£o nÃ£o poussui retorno
 */
 
 void Empresa::setCustoPerig(float n)
@@ -483,9 +483,9 @@ void Empresa::setCustoPerig(float n)
 }
 
 /**
-*\brief Altera a taxa cobrada por cada quilómetro percorrido pelos camiões da empresa 
+*\brief Altera a taxa cobrada por cada quilÃ³metro percorrido pelos camiÃµes da empresa 
 *\param n Nova taxa
-* \return Esta função não poussui retorno
+* \return Esta funÃ§Ã£o nÃ£o poussui retorno
 */
 
 void Empresa::setCustoDist(float n)
@@ -501,7 +501,7 @@ void Empresa::setCustoDist(float n)
 /***MOTORISTAS***/
 
 /**
- * @brief Retorna a BST que contém os motoristas da Empresa
+ * @brief Retorna a BST que contÃ©m os motoristas da Empresa
  * @return A BST com os motoristas
  */
 BST<Motorista> Empresa::getMotoristas()
@@ -510,14 +510,14 @@ BST<Motorista> Empresa::getMotoristas()
 }
 
 /**
-* @brief Procura um motorista na BST, atrav�s do seu nome e NIF, e devolve um apontador para o motorista
+* @brief Procura um motorista na BST, através do seu nome e NIF, e devolve um apontador para o motorista
 * @param nome Nome do motorista a procurar
 * @param nif NIF do motorista a procurar
-* @return Um apontador para o Motorista, se foi encontrado, NULL caso contr�rio
+* @return Um apontador para o Motorista, se foi encontrado, NULL caso contrário
 */
 Motorista* Empresa::encontraMotorista(string nome, unsigned int nif)
 {
-	BSTItrIn <Motorista> it(motoristas); // it � um iterador da BST "motoristas"
+	BSTItrIn <Motorista> it(motoristas); // it é um iterador da BST "motoristas"
 
 	while (!it.isAtEnd())
 	{
@@ -533,15 +533,15 @@ Motorista* Empresa::encontraMotorista(string nome, unsigned int nif)
 }
 
 /**
-* @brief Fun��o que retorna o n�mero de motoristas da empresa
-* @return N�mero de motoristas da empresa
+* @brief Função que retorna o número de motoristas da empresa
+* @return Número de motoristas da empresa
 */
 int Empresa::getNumeroMotoristas()
 {
 
 	int ret = 0;
 	
-	BSTItrIn <Motorista> it(motoristas); // it � um iterador da BST "motoristas"
+	BSTItrIn <Motorista> it(motoristas); // it é um iterador da BST "motoristas"
 
 	while (!it.isAtEnd())
 	{
@@ -557,7 +557,7 @@ int Empresa::getNumeroMotoristas()
 /**
  * @brief Adiciona um determinado motorista aos motoristas da empresa
  * @param m Motorista a adicionar
- * @return Esta função não possui retorno
+ * @return Esta funÃ§Ã£o nÃ£o possui retorno
  */
 void Empresa::adicionaMotorista(const Motorista& m)
 {
@@ -567,7 +567,7 @@ void Empresa::adicionaMotorista(const Motorista& m)
 /**
 * @brief Remove um determinado motorista dos motoristas da empresa
 * @param m Motorista a remover
-* @return O retorno � 0, se o motorista existir e for removido. -1 se o motorista n�o for encontrado.
+* @return O retorno é 0, se o motorista existir e for removido. -1 se o motorista não for encontrado.
 */
 int Empresa::removeMotorista(const Motorista& m)
 {
@@ -584,10 +584,10 @@ int Empresa::removeMotorista(const Motorista& m)
 }
 
 /**
-* @brief Remove um determinado motorista dos motoristas da empresa, atrav�s do seu nome e nif
+* @brief Remove um determinado motorista dos motoristas da empresa, através do seu nome e nif
 * @param nome Nome do motorista a remover
 * @param nif NIF do motorista a remover
-* @return O retorno � 0, se o motorista existir e for removido. -1 se o motorista n�o for encontrado.
+* @return O retorno é 0, se o motorista existir e for removido. -1 se o motorista não for encontrado.
 */
 int Empresa::removeMotorista(string nome, unsigned int nif)
 {
@@ -603,17 +603,17 @@ int Empresa::removeMotorista(string nome, unsigned int nif)
 }
 
 /**
-* @brief Aumenta as horas de servi�o de um determinado motorista
-* @param m Motorista que sofre a altera��o
-* @param horas Horas a aumentar nas horas de servi�o do motorista
-* @return 0 se a mudan�a for bem sucedida. -1 se o n�mero total de horas ultrapassar 24 (m�ximo di�rio poss�vel).
+* @brief Aumenta as horas de serviço de um determinado motorista
+* @param m Motorista que sofre a alteração
+* @param horas Horas a aumentar nas horas de serviço do motorista
+* @return 0 se a mudança for bem sucedida. -1 se o número total de horas ultrapassar 24 (máximo diário possível).
 */
 int Empresa::aumentaHorasMotorista(Motorista& m, unsigned int aumentoHoras)
 {
-	Motorista* pt = encontraMotorista(m.getNome(), m.getNif());	// apontador para o n� da BST
+	Motorista* pt = encontraMotorista(m.getNome(), m.getNif());	// apontador para o nó da BST
 
 	if (pt == NULL)
-		return -1;	// se foi um encontrado um n� com o elemento
+		return -1;	// se foi um encontrado um nó com o elemento
 
 	unsigned int horasTotais = m.getHoras() + aumentoHoras; // novas horas para o condutor
 
@@ -621,20 +621,20 @@ int Empresa::aumentaHorasMotorista(Motorista& m, unsigned int aumentoHoras)
 		return -1;
 	else
 	{
-		removeMotorista(*pt);	// apaga o n� da BST com o motorista (que fica desatualizado)
-		m.updateHoras(horasTotais); // faz a altera��o das horas no objeto copiado
-		adicionaMotorista(m); // insere a c�pia j� alterada, para que seja inserida na ordem correta
+		removeMotorista(*pt);	// apaga o nó da BST com o motorista (que fica desatualizado)
+		m.updateHoras(horasTotais); // faz a alteração das horas no objeto copiado
+		adicionaMotorista(m); // insere a cópia já alterada, para que seja inserida na ordem correta
 
 		return 0;
 	}
 }
 
 /**
-* @brief Aumenta as horas de servi�o de um determinado motorista
-* @param nome Nome do Motorista que sofre a altera��o
-* @param nif NIF do Motorista que sofre a altera��o
-* @param horas Horas a aumentar nas horas de servi�o do motorista
-* @return 0 se a mudan�a for bem sucedida. -1 se o n�mero total de horas ultrapassar 24 (m�ximo di�rio poss�vel).
+* @brief Aumenta as horas de serviço de um determinado motorista
+* @param nome Nome do Motorista que sofre a alteração
+* @param nif NIF do Motorista que sofre a alteração
+* @param horas Horas a aumentar nas horas de serviço do motorista
+* @return 0 se a mudança for bem sucedida. -1 se o número total de horas ultrapassar 24 (máximo diário possível).
 */
 int Empresa::aumentaHorasMotorista(string nome, unsigned int nif, unsigned int aumentoHoras)
 {
@@ -644,8 +644,8 @@ int Empresa::aumentaHorasMotorista(string nome, unsigned int nif, unsigned int a
 }
 
 /**
-* @brief Função que procura e retorna o motorista com MAIOR número de horas diárias efetuadas. Em caso de empate, o motorista a devolver depende da posição na BST.
-* @return Retorna o Motorista com mais horas diárias
+* @brief FunÃ§Ã£o que procura e retorna o motorista com MAIOR nÃºmero de horas diÃ¡rias efetuadas. Em caso de empate, o motorista a devolver depende da posiÃ§Ã£o na BST.
+* @return Retorna o Motorista com mais horas diÃ¡rias
 */
 Motorista Empresa::getMaiorMotorista()
 {
@@ -653,8 +653,8 @@ Motorista Empresa::getMaiorMotorista()
 }
 
 /**
-* @brief Função que procura e retorna o motorista com MENOR número de horas diárias efetuadas. Em caso de empate, o motorista a devolver depende da posição na BST.
-* @return Retorna o Motorista com menos horas diárias
+* @brief FunÃ§Ã£o que procura e retorna o motorista com MENOR nÃºmero de horas diÃ¡rias efetuadas. Em caso de empate, o motorista a devolver depende da posiÃ§Ã£o na BST.
+* @return Retorna o Motorista com menos horas diÃ¡rias
 */
 Motorista Empresa::getMenorMotorista()
 {
@@ -662,9 +662,9 @@ Motorista Empresa::getMenorMotorista()
 }
 
 /**
-* @brief Esta fun��o devolve uma lista com os motoristas que t�m menos horas di�rias de trabalho
-* @param n N�mero de motoristas que se quer que a lista tenha
-* @return Lista com os motoristas com menor n�mero de horas di�rias
+* @brief Esta função devolve uma lista com os motoristas que têm menos horas diárias de trabalho
+* @param n Número de motoristas que se quer que a lista tenha
+* @return Lista com os motoristas com menor número de horas diárias
 */
 list<Motorista> Empresa::getMaioresMotoristas(unsigned int n)
 {
@@ -674,18 +674,18 @@ list<Motorista> Empresa::getMaioresMotoristas(unsigned int n)
 
 	for (unsigned int i = 0; i < n && i < this->getNumeroMotoristas(); i++)
 	{
-		ret.push_back(copia.findMax());	// faz push do menor elemento da �rvore para a lista
+		ret.push_back(copia.findMax());	// faz push do menor elemento da árvore para a lista
 
-		copia.remove(copia.findMax());	// elimina o menor elemento, passando ao elemento imediatamente a seguir na pr�xima itera��o
+		copia.remove(copia.findMax());	// elimina o menor elemento, passando ao elemento imediatamente a seguir na próxima iteração
 	}
 
 	return ret;
 }
 
 /**
-* @brief Esta fun��o devolve uma lista com os motoristas que t�m mais horas di�rias de trabalho
-* @param n N�mero de motoristas que se quer que a lista tenha
-* @return Lista com os motoristas com maior n�mero de horas di�rias
+* @brief Esta função devolve uma lista com os motoristas que têm mais horas diárias de trabalho
+* @param n Número de motoristas que se quer que a lista tenha
+* @return Lista com os motoristas com maior número de horas diárias
 */
 list<Motorista> Empresa::getMenoresMotoristas(unsigned int n)
 {
@@ -695,9 +695,9 @@ list<Motorista> Empresa::getMenoresMotoristas(unsigned int n)
 
 	for (unsigned int i = 0; i < n && i < this->getNumeroMotoristas(); i++)
 	{
-		ret.push_back(copia.findMin());	// faz push do menor elemento da �rvore para a lista
+		ret.push_back(copia.findMin());	// faz push do menor elemento da árvore para a lista
 
-		copia.remove(copia.findMin());	// elimina o menor elemento, passando ao elemento imediatamente a seguir na pr�xima itera��o
+		copia.remove(copia.findMin());	// elimina o menor elemento, passando ao elemento imediatamente a seguir na próxima iteração
 	}
 
 	return ret;
@@ -705,21 +705,41 @@ list<Motorista> Empresa::getMenoresMotoristas(unsigned int n)
 
 /***CLIENTES INATIVOS***/
 
+/**
+* \brief Obtém a tabela de dispersão onde estão os Clientes Inativos
+* \return Retorna a tabela de dispersão onde estão os Clientes Inativos
+*/
 inativosHash Empresa::getClientesInativos()
 {
 	return clientesInativos;
 }
 
+/**
+* \brief Adiciona um novo Cliente Inativo à tabela de dispersão
+* \param ci Cliente Inativo a adicionar
+* \return Esta função não possui retorno 
+*/
 void Empresa::adicionaClienteInativo(const ClienteInativo& ci)
 {
 	clientesInativos.insert(ci);
 }
 
+/**
+* \brief Remove um Cliente Inativo da tabela de dispersão
+* \param ci Cliente Inativo a remover
+* \return Esta função não possui retorno 
+*/
 void Empresa::removeClienteInativo(const ClienteInativo& ci)
 {
 	clientesInativos.erase(ci);
 }
 
+/**
+* \brief Verifica se um cliente está na tabela de dispersão 
+* \param umCliente Nome do cliente a procurar
+* \param umNif Nif do cliente a procurar
+* \return Retorna true se encontrou o cliente e false se não encontrou
+*/
 bool Empresa::contemClienteInativo(string umCliente, unsigned int umNif)
 {
 	ClienteInativo ci1(umCliente, umNif);
@@ -732,6 +752,10 @@ bool Empresa::contemClienteInativo(string umCliente, unsigned int umNif)
 		return true;
 }
 
+/**
+* \brief Cria uma lista com as informações de todos os clientes inativos
+* \return Retorna a lista com a informação de todos os clientes inativos
+*/
 list<string> Empresa::listaClientesInativos()
 {
 	list<string> final;
@@ -749,6 +773,10 @@ list<string> Empresa::listaClientesInativos()
 
 }
 
+/**
+* \brief Imprime no ecrã as informações de todos os clientes inativos
+* \return Esta função não possui retorno 
+*/
 void Empresa::printClientesInativos()
 {
 	list<string> l = this->listaClientesInativos();
@@ -762,11 +790,20 @@ void Empresa::printClientesInativos()
 
 /******LISTA DE OFICINAS******/
 
+/**
+* \brief Define o parametro como fila de prioridade onde estao guardadas as oficinas
+* \param o Lista a definir como fila de prioridade
+* \return Esta função não possui retorno 
+*/
 void Empresa::setOficinas(const ListaOficinas& o)
 {
 	this->oficinas = o;
 }
 
+/**
+* \brief Obtém a fila de prioridade onde estão as oficinas
+* \return Retorna a fila de prioridade onde estão as oficinas
+*/
 ListaOficinas Empresa::getOficinas()
 {
 	return this->oficinas;
