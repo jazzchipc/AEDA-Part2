@@ -128,7 +128,7 @@ public:
 	// Oficinas
 
 	void setOficinas(const ListaOficinas& o);
-	ListaOficinas Empresa::getOficinas();
+	ListaOficinas& Empresa::getOficinas();
 
 };
 

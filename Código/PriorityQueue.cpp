@@ -92,8 +92,10 @@ string ListaOficinas::imprimeOficinas() const
 	{
 		Oficina of = tmp.top();
 		tmp.pop();
-		ss << of << endl;
+		ss << of;
 	}
+
+	ss << endl;
 
 	return ss.str();
 }
@@ -107,6 +109,8 @@ string ListaOficinas::imprimeOficinas() const
 Oficina ListaOficinas::retornaOficina(Camiao c, ServicoOficina s)
 {
 	Oficina of;
+
+	of.adicionaServico(s);
 
 	if (!s.getEspecifico()) // serviço normal
 	{
@@ -158,6 +162,7 @@ unsigned ListaOficinas::finalizaServico(Oficina& of, ServicoOficina s)
 {
 	vector<Oficina> tmp;
 
+	of.removeServico();
 
 	while (!oficinas.empty())
 	{

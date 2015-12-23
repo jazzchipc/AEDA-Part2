@@ -53,6 +53,10 @@ void menuMotoristas(Empresa &empresa);
 
 void menuOficinas(Empresa &empresa);
 
+/*Menu dos clientes inativos*/
+void menuClientesInativos(Empresa &empresa);
+
+
 
 #endif // INTERFACE_H
 

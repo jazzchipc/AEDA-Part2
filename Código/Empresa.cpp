@@ -804,7 +804,7 @@ void Empresa::setOficinas(const ListaOficinas& o)
 * \brief Obtém a fila de prioridade onde estão as oficinas
 * \return Retorna a fila de prioridade onde estão as oficinas
 */
-ListaOficinas Empresa::getOficinas()
+ListaOficinas& Empresa::getOficinas()
 {
 	return this->oficinas;
 }

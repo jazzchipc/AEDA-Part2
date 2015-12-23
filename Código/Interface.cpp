@@ -902,6 +902,8 @@ void menuMotoristas(Empresa &empresa)
 
 void menuOficinas(Empresa &empresa)
 {
+	clearScreen();
+
 	cout << "NUMERO DE OFICINAS: " << empresa.getOficinas().numeroOficinas() << endl << endl;
 
 	cout << empresa.getOficinas().imprimeOficinas();
@@ -963,17 +965,58 @@ void menuOficinas(Empresa &empresa)
 		cout << "Escreva \"E\" ou \"N\"." << endl;
 	}
 
+	bool especifico;
+
 	if (c == 'E' || c == 'e')
 	{
-		ServicoOficina s(true, 10);
-		cout << empresa.getOficinas().retornaOficina(*c1, s);
+		especifico = true;
 	}
 	else
 	{
-		ServicoOficina s(false, 5);
-		cout << empresa.getOficinas().retornaOficina(*c1, s);
+		especifico = false;
 	}
 
+	while (1)
+	{
+		cout << "A reparcao e (T)otal (3 dias) ou (P)arcial (1 dia)?: ";
+		getline(cin, input);
+
+		stringstream myStream(input);
+		if (myStream >> c)
+		{
+			if (c == 'T' || c == 't' || c == 'P' || c == 'p')
+				break;
+		}
+		cout << "Escreva \"T\" ou \"P\"." << endl;
+	}
+
+	cout << endl << "Oficina a que foi atribuida a reparacao: " << endl;
+
+	int duracao;
+
+	if (c == 'P' || c == 'p')
+	{
+		duracao = 1;
+	}
+	else
+	{
+		duracao = 3;
+	}
+
+	ServicoOficina s(especifico, duracao);
+
+	cout << empresa.getOficinas().retornaOficina(*c1, s);
+
+	primaEnter();
+
+	menuOficinas(empresa);
 
 	return;
+}
+
+void menuClientesInativos(Empresa &empresa)
+{
+	clearScreen();
+
+
 }
