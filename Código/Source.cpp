@@ -10,9 +10,8 @@
 /******USAR ESTE MAIN PARA TESTAR INTERFACE/PROGRAMA NUM CONJUNTO*******/
 int main2()
 {
-	Empresa empresa = firstScreen();
+	
 
-	menuPrincipal(empresa);
 
 	return 0;
 }
@@ -20,14 +19,14 @@ int main2()
 //*****USAR ESTE MAIN PARA TESTAR AS FUNÇÕES DA PARTE 2******
 int main()
 {
-	Empresa empresa("Transportex");
+	Empresa empresa = firstScreen();
 
-	Motorista m1("A", 111);
-	Motorista m2("B", 111);
-	Motorista m3("C", 111);
-	Motorista m4("D", 111);
-	Motorista m5("E", 111);
-	Motorista m6("F", 111);
+	Motorista m1("Joao Peixoto", 12231111);
+	Motorista m2("Miguel Pires", 11123411);
+	Motorista m3("Pedro Cardoso", 44728912);
+	Motorista m4("Luis Mexias", 11134521);
+	Motorista m5("Paulo Carvalho", 1234111);
+	Motorista m6("Joana Freitas", 1928111);
 
 	empresa.adicionaMotorista(m1);
 	empresa.adicionaMotorista(m2);
@@ -67,12 +66,17 @@ int main()
 	l.adicionaOficina(o5);
 	l.adicionaOficina(o6);
 
+	ClienteInativo ci1("A", 1333);
+	ClienteInativo ci2("B", 1333);
+	ClienteInativo ci3("C", 1333);
+	ClienteInativo ci4("D", 1333);
+
+	empresa.adicionaClienteInativo(ci1);
+	empresa.adicionaClienteInativo(ci3);
+
 	empresa.setOficinas(l);
 
-	menuOficinas(empresa);
-
-	char c;
-	cin >> c;
+	menuPrincipal(empresa);
 
 	return 0;
 }

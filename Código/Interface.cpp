@@ -177,7 +177,10 @@ void menuPrincipal(Empresa &empresa)
 
 	cout << "1 - Servicos" << endl;
 	cout << "2 - Clientes" << endl;
-	cout << "3 - Frota" << endl << endl;
+	cout << "3 - Frota" << endl;
+	cout << "4 - Motoristas" << endl; 
+	cout << "5 - Clientes Inativos" << endl; 
+	cout << "6 - Oficinas" << endl << endl;
 
 	char opcao;
 
@@ -186,7 +189,7 @@ void menuPrincipal(Empresa &empresa)
 	cin.ignore(256, '\n');
 	cin.clear();
 
-	while (opcao != '1' && opcao != '2' && opcao != '3' && opcao !='0')
+	while (opcao != '1' && opcao != '2' && opcao != '3' && opcao != '4' && opcao != '5' && opcao != '6' && opcao != '0')
 	{
 		cin.clear();
 		cout << "Por favor digite o numero daquilo a que pretende aceder." << endl << endl;
@@ -202,6 +205,9 @@ void menuPrincipal(Empresa &empresa)
 	case '1': mostrarServicos(empresa); break;
 	case '2': mostrarClientes(empresa); break;
 	case '3': mostrarFrota(empresa); break;
+	case '4': menuMotoristas(empresa); break;
+	case '5': menuClientesInativos(empresa); break;
+	case '6': menuOficinas(empresa); break;
 	case '0': return;
 	}
 
@@ -928,6 +934,12 @@ void menuOficinas(Empresa &empresa)
 		cout << "Insira um codigo valido, por favor." << endl;
 	}
 
+	if (codigo == 0)
+	{
+		menuPrincipal(empresa);
+		return;
+	}
+
 	Camiao* c1 = new Camiao(codigo, "");
 
 	while (sequentialSearch(empresa.getFrota().getCamioes(), c1) == -1) // se não encontra
@@ -1018,5 +1030,74 @@ void menuClientesInativos(Empresa &empresa)
 {
 	clearScreen();
 
+	empresa.printClientesInativos();
+
+	string input;
+
+	char c;
+
+	while (1)
+	{
+		cout << "Pretende (A)dicionar ou (R)emover um cliente inativo? ";
+		getline(cin, input);
+
+		stringstream myStream(input);
+		if (myStream >> c)
+		{
+			if (c == 'A' || c == 'a' || c == 'R' || c == 'r' || c == '0')
+				break;
+		}
+		cout << "Escreva \"A\" ou \"R\"." << endl;
+	}
+
+	if (c == '0')
+	{
+		menuPrincipal(empresa);
+		return;
+	}
+
+	string nome;
+	int nif;
+
+	while (1)
+	{
+		cout << "Qual o nome do cliente? ";
+		getline(cin, input);
+
+		stringstream myStream(input);
+		if (myStream >> nome)
+		{
+				break;
+		}
+		cout << "Escreva um nome valido. " << endl;
+	}
+
+	while (1)
+	{
+		cout << "Qual o NIF do cliente? ";
+		getline(cin, input);
+
+		stringstream myStream(input);
+		if (myStream >> nif)
+		{
+			break;
+		}
+		cout << "Escreva um NIF valido. " << endl;
+	}
+
+	ClienteInativo ci1(nome, nif);
+
+	if (c == 'A' || c == 'a')
+	{
+		empresa.adicionaClienteInativo(ci1);
+	}
+	else
+	{
+		empresa.removeClienteInativo(ci1);
+	}
+
+	menuClientesInativos(empresa);
+
+	return;
 
 }
