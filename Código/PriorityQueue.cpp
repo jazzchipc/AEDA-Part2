@@ -15,7 +15,7 @@ using namespace std;
 //Overloading
 ostream& operator<<(ostream& os, Oficina of)
 {
-	os << "Nome da Oficina: " << of.getDenominacao() << "Especialidade: " << of.getEspecialidade() << ", Disponiblidade: " << of.getDisponibilidade() << endl;
+	os << "Nome da Oficina: " << of.getDenominacao() << ", Especialidade: " << of.getEspecialidade() << ", Disponiblidade: " << of.getDisponibilidade() << endl;
 
 	return os;
 }
@@ -79,12 +79,20 @@ string ListaOficinas::imprimeOficinas() const
 	return ss.str();
 }
 
-Oficina ListaOficinas::retornaOficina(Camiao& c, bool servico)
+Oficina ListaOficinas::retornaOficina(Camiao c, ServicoOficina s)
 {
 	Oficina of;
 
-	if (servico) // serviço == true , serviço normal
-		return oficinas.top();
+	if (!s.getEspecifico()) // serviço normal
+	{
+		of = oficinas.top();
+		oficinas.pop();
+		unsigned int disp = oficinas.top().getDisponibilidade() + s.getDuracao();
+		of.updateDisponibilidade(disp);
+		oficinas.push(of);
+
+		return of;
+	}
 
 	vector<Oficina> tmp;
 
@@ -94,7 +102,7 @@ Oficina ListaOficinas::retornaOficina(Camiao& c, bool servico)
 		{
 			of = oficinas.top();
 			oficinas.pop();
-			unsigned int disp = oficinas.top().getDisponibilidade() - 1;
+			unsigned int disp = oficinas.top().getDisponibilidade() + s.getDuracao();
 			of.updateDisponibilidade(disp);
 			oficinas.push(of);
 			for (unsigned int i = 0; i < tmp.size(); i++)

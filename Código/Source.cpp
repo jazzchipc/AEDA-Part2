@@ -8,7 +8,7 @@
 #include <iostream>
 
 /******USAR ESTE MAIN PARA TESTAR INTERFACE/PROGRAMA NUM CONJUNTO*******/
-int main()
+int main2()
 {
 	Empresa empresa = firstScreen();
 
@@ -18,49 +18,45 @@ int main()
 }
 
 //*****USAR ESTE MAIN PARA TESTAR AS FUNÇÕES DA PARTE 2******
-int main2()
+int main()
 {
-	Empresa empresa ("Transportex");
+	Empresa empresa("Transportex");
 
-	Motorista m1 ("A", 333);
-	Motorista m2 ("B", 111);
-	Motorista m3 ("C", 3333, 9);
-	Motorista m4 ("D", 90901, 10);
-	Motorista m5 ("E", 11, 9);
-	Motorista m6("F", 333);
-	Motorista m7("G", 111);
-	Motorista m8("H", 3333, 8.12);
-	Motorista m9("I", 90901, 10);
-	Motorista m10("Jose COsta", 11, 9);
+	Oficina o1("A", "Volvo", 9);
+	Oficina o2("B", "Volvo", 1);
+	Oficina o3("C", "Volvo", 10);
+	Oficina o4("D", "Renault", 9);
+	Oficina o5("E", "Mercedes", 1);
+	Oficina o6("F", "Mercedes", 11);
 
-	empresa.adicionaMotorista(m1);
-	empresa.adicionaMotorista(m2);
-	empresa.adicionaMotorista(m3);
-	empresa.adicionaMotorista(m4);
-	empresa.adicionaMotorista(m5);
-	empresa.adicionaMotorista(m6);
-	empresa.adicionaMotorista(m7);
-	empresa.adicionaMotorista(m8);
-	empresa.adicionaMotorista(m9);
-	empresa.adicionaMotorista(m10);
+	Camiao c1(1, "Volvo");
+	Camiao c2(2, "Renault");
+	Camiao c3(3, "Mercedes");
 
-	empresa.getMotoristas().printTree();
+	ServicoOficina se1(true, 10);
+	ServicoOficina se2(true, 5);
+	ServicoOficina sn1(false, 2);
+	ServicoOficina sn2(false, 6);
 
-	cout << empresa.removeMotorista(m4);
-	cout << empresa.removeMotorista("C", 3333);
-	cout << empresa.removeMotorista("Z", 0);
-	cout << empresa.aumentaHorasMotorista(m1, 10);
-	cout << empresa.aumentaHorasMotorista(m1, 10);
-	cout << empresa.aumentaHorasMotorista(m1, 10);
+	ListaOficinas l;
+	l.adicionaOficina(o1);
+	l.adicionaOficina(o2);
+	l.adicionaOficina(o3);
+	l.adicionaOficina(o4);
+	l.adicionaOficina(o5);
+	l.adicionaOficina(o6);
 
-	cout << endl;
+	empresa.setOficinas(l);
 
-	empresa.getMotoristas().printTree();
+	cout << empresa.getOficinas().numeroOficinas() << endl;
 
-	cout << empresa.getMaiorMotorista();
-	cout << empresa.getMenorMotorista();
+	cout << empresa.getOficinas().imprimeOficinas();
 
-	printListaMotoristas(empresa.getMenoresMotoristas(5));
+	ListaOficinas aux = empresa.getOficinas();
+
+	cout << aux.retornaOficina(c1, sn1);
+
+	cout << aux.imprimeOficinas();
 
 	char c;
 	cin >> c;

@@ -8,6 +8,8 @@
 #ifndef SRC_EMPRESA_H_
 #define SRC_EMPRESA_H_
 
+#include <list>
+#include <cstdint>
 
 #include "Servico.h"
 #include "Frota.h"
@@ -15,8 +17,9 @@
 #include "Motorista.h"
 #include "Cliente.h"
 #include "ClienteInativo.h"
-#include <list>
-#include <cstdint>
+#include "PriorityQueue.h"
+#include "Oficina.h"
+
 
 using namespace std;
 
@@ -33,6 +36,7 @@ class Empresa
 
 	BST<Motorista> motoristas;
 	inativosHash clientesInativos;
+	ListaOficinas oficinas;
 
 public:
 	//Construtor
@@ -120,6 +124,11 @@ public:
 	bool contemClienteInativo(string umCliente, unsigned int Nif);
 	void printClientesInativos();
 	list<string> listaClientesInativos();
+
+	// Oficinas
+
+	void setOficinas(const ListaOficinas& o);
+	ListaOficinas Empresa::getOficinas();
 
 };
 

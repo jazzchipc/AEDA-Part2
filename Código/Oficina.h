@@ -34,6 +34,20 @@ public:
 	bool operator<(const Oficina& o1) const;
 };
 
+class ServicoOficina
+{
+private:
+	bool especifico;
+	unsigned int duracao; // em dias
+
+public:
+	ServicoOficina(bool especifico, unsigned int duracao) { this->especifico = especifico; this->duracao = duracao; };
+	~ServicoOficina() {};
+
+	bool getEspecifico() { return this->especifico; };
+	unsigned int getDuracao() { return this->duracao; }
+};
+
 
 
 #endif /* SRC_OFICINA_H_ */

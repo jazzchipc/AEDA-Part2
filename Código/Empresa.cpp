@@ -759,3 +759,15 @@ void Empresa::printClientesInativos()
 		l.pop_front();
 	}
 }
+
+/******LISTA DE OFICINAS******/
+
+void Empresa::setOficinas(const ListaOficinas& o)
+{
+	this->oficinas = o;
+}
+
+ListaOficinas Empresa::getOficinas()
+{
+	return this->oficinas;
+}
