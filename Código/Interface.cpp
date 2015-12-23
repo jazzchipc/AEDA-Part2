@@ -850,3 +850,130 @@ void removerCamiao(Empresa &empresa)
 	empresa.saveEmpresa();
 	mostrarFrota(empresa);
 }
+
+/***********
+ * Parte 2 *
+ ***********/
+
+void menuMotoristas(Empresa &empresa)
+{
+	clearScreen();
+
+	cout << "MOTORISTAS MAIS LIVRES: " << endl;
+	printListaMotoristas(empresa.getMenoresMotoristas(5)); // imprime a lista dos 5 motoristas com menos horas
+
+	cout << endl;
+
+	cout << "MOTORISTAS MAIS OCUPADOS: " << endl;
+	printListaMotoristas(empresa.getMaioresMotoristas(5));
+
+	cout << endl << endl;
+
+	unsigned int horas;
+
+	while (1)
+	{
+		string input;
+
+		cout << "Tempo ocupado pelo novo servico: ";
+		getline(cin, input);
+
+		stringstream myStream(input);
+		if (myStream >> horas)
+			break;
+		cout << "Insira um valor valido, por favor." << endl;
+	}
+
+	if (horas == 0)
+	{
+		menuPrincipal(empresa);
+		return;
+	}
+
+	if (empresa.aumentaHorasMotorista(empresa.getMenorMotorista(), horas) == -1)
+	{
+		cout << endl << "Os motoristas ja estao todos ocupados. Nao e possivel executar esse servico." << endl;
+		primaEnter();
+	}
+
+	menuMotoristas(empresa);
+
+}
+
+void menuOficinas(Empresa &empresa)
+{
+	cout << "NUMERO DE OFICINAS: " << empresa.getOficinas().numeroOficinas() << endl << endl;
+
+	cout << empresa.getOficinas().imprimeOficinas();
+
+	cout << "CAMIOES" << endl;
+	empresa.getFrota().readCamioes2();
+
+	cout << endl;
+
+	string input;
+
+	int codigo;
+
+	while (1)
+	{
+		cout << "Codigo do camiao a reparar: ";
+		getline(cin, input);
+
+		stringstream myStream(input);
+		if (myStream >> codigo)
+			break;
+		cout << "Insira um codigo valido, por favor." << endl;
+	}
+
+	Camiao* c1 = new Camiao(codigo, "");
+
+	while (sequentialSearch(empresa.getFrota().getCamioes(), c1) == -1) // se não encontra
+	{
+		cout << "Codigo de camiao nao encontrado." << endl;
+		while (1)
+		{
+			cout << "Codigo do camiao que pretende reparar: ";
+			getline(cin, input);
+
+			stringstream myStream(input);
+			if (myStream >> codigo)
+				break;
+			cout << "Insira um codigo valido, por favor." << endl;
+		}
+
+		c1 = new Camiao(codigo, "");
+	}
+
+	c1 = empresa.getFrota().getCamioes()[sequentialSearch(empresa.getFrota().getCamioes(), c1)];
+
+	char c;
+
+	while (1)
+	{
+		cout << "A reparcao e (N)ormal ou (E)specifica?: ";
+		getline(cin, input);
+
+		stringstream myStream(input);
+		if (myStream >> c)
+		{
+			if (c == 'E' || c == 'e' || c == 'N' || c == 'n')
+				break;
+		}
+		cout << "Escreva \"E\" ou \"N\"." << endl;
+	}
+
+	if (c == 'E' || c == 'e')
+	{
+		ServicoOficina s(true, 10);
+		cout << empresa.getOficinas().retornaOficina(*c1, s);
+	}
+	else
+	{
+		ServicoOficina s(false, 5);
+		cout << empresa.getOficinas().retornaOficina(*c1, s);
+	}
+
+
+	return;
+}

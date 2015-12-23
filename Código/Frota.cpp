@@ -58,6 +58,15 @@ void Frota::readCamioes()const
 	}
 }
 
+void Frota::readCamioes2() const
+{
+	cout << setw(8) << "Codigo" << setw(20) << "Marca" << endl;
+	for (unsigned int i = 0; i < camioes.size(); i++)
+	{
+		cout << setw(8) << camioes[i]->getCodigo() << setw(20) << camioes[i]->getMarca() << endl;
+	}
+}
+
 /**
 * \brief Obtém o vetor que guarda todos os camiões da frota
 * \return Retorna o vetor

@@ -22,6 +22,20 @@ int main()
 {
 	Empresa empresa("Transportex");
 
+	Motorista m1("A", 111);
+	Motorista m2("B", 111);
+	Motorista m3("C", 111);
+	Motorista m4("D", 111);
+	Motorista m5("E", 111);
+	Motorista m6("F", 111);
+
+	empresa.adicionaMotorista(m1);
+	empresa.adicionaMotorista(m2);
+	empresa.adicionaMotorista(m3);
+	empresa.adicionaMotorista(m4);
+	empresa.adicionaMotorista(m5);
+	empresa.adicionaMotorista(m6);
+
 	Oficina o1("A", "Volvo", 9);
 	Oficina o2("B", "Volvo", 1);
 	Oficina o3("C", "Volvo", 10);
@@ -29,9 +43,16 @@ int main()
 	Oficina o5("E", "Mercedes", 1);
 	Oficina o6("F", "Mercedes", 11);
 
-	Camiao c1(1, "Volvo");
-	Camiao c2(2, "Renault");
-	Camiao c3(3, "Mercedes");
+	Camiao* c1 = new Camiao (1, "Volvo");
+	Camiao* c2 = new Camiao (2, "Renault");
+	Camiao* c3 = new Camiao (3, "Mercedes");
+
+	Frota f;
+	f.adicionaCamiao(c1);
+	f.adicionaCamiao(c2);
+	f.adicionaCamiao(c3);
+
+	empresa.setFrota(f);
 
 	ServicoOficina se1(true, 10);
 	ServicoOficina se2(true, 5);
@@ -48,19 +69,7 @@ int main()
 
 	empresa.setOficinas(l);
 
-	cout << empresa.getOficinas().numeroOficinas() << endl;
-
-	cout << empresa.getOficinas().imprimeOficinas();
-
-	ListaOficinas aux = empresa.getOficinas();
-
-	Oficina o = aux.retornaOficina(c1, sn1);
-
-	cout << o;
-
-	aux.finalizaServico(o, sn1);
-	
-	cout << aux.imprimeOficinas();
+	menuOficinas(empresa);
 
 	char c;
 	cin >> c;

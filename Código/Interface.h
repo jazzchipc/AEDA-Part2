@@ -47,7 +47,11 @@ void removerCamiao(Empresa &empresa);
 
 /*Menu dos motoristas*/
 
+void menuMotoristas(Empresa &empresa);
 
+/*Menu das oficinas*/
+
+void menuOficinas(Empresa &empresa);
 
 
 #endif // INTERFACE_H
