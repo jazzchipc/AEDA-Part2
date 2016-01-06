@@ -35,21 +35,35 @@ int main()
 	empresa.adicionaMotorista(m5);
 	empresa.adicionaMotorista(m6);
 
-	Oficina o1("A", "Volvo", 9);
-	Oficina o2("B", "Volvo", 1);
-	Oficina o3("C", "Volvo", 10);
-	Oficina o4("D", "Renault", 9);
-	Oficina o5("E", "Mercedes", 1);
-	Oficina o6("F", "Mercedes", 11);
+	Oficina o1("VolvoRepair", "Volvo", 8);
+	Oficina o2("TeixeiraCo", "Volvo", 4);
+	Oficina o3("CarAuto", "Volvo", 0);
+	Oficina o4("CaetanoFormula", "Renault", 0);
+	Oficina o5("MercServices", "Mercedes", 0);
+	Oficina o6("Autoschaft", "Mercedes", 2);
+	Oficina o7("Wuman", "MAN", 0);
 
-	Camiao* c1 = new Camiao (1, "Volvo");
-	Camiao* c2 = new Camiao (2, "Renault");
-	Camiao* c3 = new Camiao (3, "Mercedes");
+	Camiao* c1 = new Camiao (100, "Volvo");
+	Camiao* c4 = new Camiao(101, "Volvo");
+	Camiao* c8 = new Camiao(102, "Volvo");
+	Camiao* c2 = new Camiao (200, "Renault");
+	Camiao* c3 = new Camiao (300, "Mercedes");
+	Camiao* c7 = new Camiao(301, "Mercedes");
+	Camiao* c5 = new Camiao(400, "MAN");
+	Camiao* c6 = new Camiao(401, "MAN");
+	
+	
+
 
 	Frota f;
 	f.adicionaCamiao(c1);
 	f.adicionaCamiao(c2);
 	f.adicionaCamiao(c3);
+	f.adicionaCamiao(c4);
+	f.adicionaCamiao(c5);
+	f.adicionaCamiao(c6);
+	f.adicionaCamiao(c7);
+	f.adicionaCamiao(c8);
 
 	empresa.setFrota(f);
 
@@ -65,14 +79,23 @@ int main()
 	l.adicionaOficina(o4);
 	l.adicionaOficina(o5);
 	l.adicionaOficina(o6);
+	l.adicionaOficina(o7);
 
-	ClienteInativo ci1("A", 1333);
-	ClienteInativo ci2("B", 1333);
-	ClienteInativo ci3("C", 1333);
-	ClienteInativo ci4("D", 1333);
+	ClienteInativo ci1("Antonio Ramada", 34978102);
+	ClienteInativo ci2("Miguel Venancio", 871905142);
+	ClienteInativo ci3("Hugo Costa", 165721982);
+	ClienteInativo ci4("Diogo Cunha", 132518290);
+	ClienteInativo ci5("Amalia Ambrosia", 112763890);
+	ClienteInativo ci6("Domingos Domingos", 111777111);
+	ClienteInativo ci7("Joao Freitas", 198872052);
 
 	empresa.adicionaClienteInativo(ci1);
+	empresa.adicionaClienteInativo(ci2);
 	empresa.adicionaClienteInativo(ci3);
+	empresa.adicionaClienteInativo(ci4);
+	empresa.adicionaClienteInativo(ci5);
+	empresa.adicionaClienteInativo(ci6);
+	empresa.adicionaClienteInativo(ci7);
 
 	empresa.setOficinas(l);
 

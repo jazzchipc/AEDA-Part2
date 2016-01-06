@@ -131,9 +131,9 @@ Oficina ListaOficinas::retornaOficina(Camiao& c, ServicoOficina s)
 		if (c.getMarca() == oficinas.top().getEspecialidade())
 		{
 			of = oficinas.top();
-			oficinas.pop();
 			unsigned int disp = oficinas.top().getDisponibilidade() + s.getDuracao();
 			of.updateDisponibilidade(disp);
+			oficinas.pop();
 			oficinas.push(of);
 			for (unsigned int i = 0; i < tmp.size(); i++)
 			{
