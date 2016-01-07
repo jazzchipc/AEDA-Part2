@@ -190,3 +190,13 @@ unsigned ListaOficinas::finalizaServico(Oficina& of, int duracao)
 
 	return 0;
 }
+
+/**
+* @brief Retorna a "fila" de uma oficina.
+* @return A fila
+*/
+fila ListaOficinas::retornaFila()
+{
+	return this->oficinas;
+}
+

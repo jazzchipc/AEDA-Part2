@@ -28,6 +28,7 @@ public:
 	string imprimeOficinas() const;
 	Oficina retornaOficina(Camiao& c, ServicoOficina s);
 	unsigned finalizaServico(Oficina& of, int duracao);
+	fila retornaFila();
 };
 
 ostream& operator<<(ostream& os, Oficina of);

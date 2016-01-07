@@ -265,6 +265,80 @@ void Empresa::saveEmpresa()
 
 	output.close();
 
+	/***GUARDAR MOTORISTAS***/
+
+	char fileMotoristas[] = "motoristas.txt";	// nome do ficheiro que vai conter os motoristas
+
+	ofstream m;
+	m.open(fileMotoristas);
+
+	// Guardar nome e horas ocupadas
+
+	{
+
+		BSTItrIn <Motorista> it(motoristas); // vai percorrer a árvore
+
+		while (!it.isAtEnd())
+		{
+			m << it.retrieve().getNome() << "," << it.retrieve().getNif() << "," << it.retrieve().getHoras() << endl;
+			it.advance();
+		}
+
+		m.close();
+
+	}
+
+	/***GUARDAR CLIENTES INATIVOS***/
+
+	{
+		char fileCInativos[] = "inativos.txt";
+
+		ofstream ci;
+		ci.open(fileCInativos);
+
+		for (inativosHash::const_iterator it = clientesInativos.begin(); it != clientesInativos.end(); it++)
+		{
+			ci << (*it).getNome() << "," << (*it).getNif() << endl;
+		}
+
+		ci.close();
+	}
+
+	/***GUARDAR OFICINAS***/
+
+	{
+		char fileOficinas[] = "oficinas.txt";
+
+		ofstream o;
+		o.open(fileOficinas);
+
+		fila f = oficinas.retornaFila();
+
+		while (!f.empty())
+		{
+			o << f.top().getDenominacao() << "," << f.top().getDisponibilidade() << "," << f.top().getEspecialidade() << endl;
+
+			f.pop();
+		}
+
+		o.close();
+	}
+
+	/***GUARDAR CAMIÕES***/
+	
+	{
+		char fileCamioes[] = "camioes.txt";
+
+		ofstream c;
+		c.open(fileCamioes);
+
+		for (unsigned int i = 0; i < this->frota.getCamioes().size(); i++)
+		{
+			c << frota.getCamioes()[i]->getCodigo() << "," << frota.getCamioes()[i]->getMarca() << "," << frota.getCamioes()[i]->getOficina() << "," << frota.getCamioes()[i]->getReparacao() << endl;
+		}
+
+		c.close();
+	}
 
 }
 

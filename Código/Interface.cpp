@@ -208,7 +208,7 @@ void menuPrincipal(Empresa &empresa)
 	case '4': menuMotoristas(empresa); break;
 	case '5': menuClientesInativos(empresa); break;
 	case '6': menuOficinas(empresa); break;
-	case '0': return;
+	case '0': empresa.saveEmpresa(); return;
 	}
 
 }
