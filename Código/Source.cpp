@@ -81,13 +81,13 @@ int main()
 	l.adicionaOficina(o6);
 	l.adicionaOficina(o7);
 
-	ClienteInativo ci1("Antonio Ramada", 34978102);
-	ClienteInativo ci2("Miguel Venancio", 871905142);
-	ClienteInativo ci3("Hugo Costa", 165721982);
-	ClienteInativo ci4("Diogo Cunha", 132518290);
-	ClienteInativo ci5("Amalia Ambrosia", 112763890);
-	ClienteInativo ci6("Domingos Domingos", 111777111);
-	ClienteInativo ci7("Joao Freitas", 198872052);
+	ClienteInativo ci1("AntonioRamada", 3497);
+	ClienteInativo ci2("MiguelVenancio", 8719);
+	ClienteInativo ci3("HugoCosta", 1657);
+	ClienteInativo ci4("DiogoCunha", 1325);
+	ClienteInativo ci5("AmaliaAmbrosia", 1127);
+	ClienteInativo ci6("DomingosDomingos", 1117);
+	ClienteInativo ci7("JoaoFreitas", 1988);
 
 	empresa.adicionaClienteInativo(ci1);
 	empresa.adicionaClienteInativo(ci2);
